@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navbar, Home, Register, Login, UserPage, NotFound, AuthRoute } from './components/root.index'
+import { Navbar, Register, Login, UserPage, NotFound, AuthRoute } from './components/root.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import signIn from './utils/auth';
 import LocationPage from './pages/LocationPage';

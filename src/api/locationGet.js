@@ -11,7 +11,6 @@ export const getLocations = async () => {
         });
 
         const locations = response.data;
-        console.log('LOCATIONS EN API', locations);
         return locations
 
     } catch (error) {
