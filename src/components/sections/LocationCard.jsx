@@ -1,5 +1,6 @@
 import React from "react";
 
+// test
 const LocationCard = () => {
   return (
     <div className="card" style={{ border: "1px solid"}}>
