@@ -14,9 +14,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-      <LocationCard/>
-=======
       <Router>
         <Navbar isAuth={isAuth} logout={logout} />
         <Switch>
@@ -37,7 +34,6 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </Router>
->>>>>>> origin/develop
     </div>
   );
 }
