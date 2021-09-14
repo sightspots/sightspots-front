@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Navbar, Home, Register, Login, UserPage, NotFound, AuthRoute } from './components'
+import { Navbar, Home, Register, Login, UserPage, NotFound, AuthRoute } from './components/root.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import signIn from './utils/auth';
+import LocationPage from './pages/LocationPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -15,8 +16,8 @@ function App() {
       <Router>
         <Navbar isAuth={isAuth} logout={logout} />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/locations" component={Home} />
+          <Route exact path="/" component={LocationPage} />
+          <Route exact path="/locations" component={LocationPage} />
           <Route path="/register" component={Register} />
           <Route
             path="/login"
