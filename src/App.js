@@ -1,4 +1,3 @@
-import {LocationCard} from './components/index';
 import React, { useState } from 'react'
 import { Navbar, Home, Register, Login, UserPage, NotFound, AuthRoute } from './components/root.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
@@ -17,7 +16,7 @@ function App() {
       <Router>
         <Navbar isAuth={isAuth} logout={logout} />
         <Switch>
-          <Route exact path="/" component={LocationPage} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/locations" component={LocationPage} />
           <Route path="/register" component={Register} />
           <Route

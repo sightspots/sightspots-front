@@ -25,7 +25,7 @@ function LocationPage() {
 
     return (
         <div>
-            {locations.map((location) => <Location key={location._id} location={location} />)}
+            {/*locations.map((location) => <Location key={location._id} location={location} />)*/}
         </div>
     )
 }
