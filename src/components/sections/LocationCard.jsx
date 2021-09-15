@@ -1,4 +1,5 @@
 import React from "react";
+import LocationModal from "./LocationModal";
 
 const LocationCard = (props) => {
   return (
@@ -12,6 +13,7 @@ const LocationCard = (props) => {
               Math.floor(Math.random() * props.location.pictures.length)
             ]
           }
+          alt={props.location.title}
         />
       </div>
       <div className="card__info">
@@ -21,9 +23,13 @@ const LocationCard = (props) => {
           <span>Likes: {props.location.rating}</span>
           {/* modal?? */}
           <button>Ampliar</button>
-          <button>Añadir a lista</button>
+          {/* type */}
+          <button>tipo</button>
         </div>
       </div>
+          <LocationModal>
+          <h1>Modal</h1>
+          </LocationModal>
     </div>
   );
 };
