@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Location } from '../components/Location';
-import { getLocations } from "../api/locationGet";
+import { getLocations } from "../api/locationsGet";
 
 
 function locationPage() {
