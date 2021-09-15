@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Location } from '../components/Location';
 import { getLocations } from "../api/locationsGet";
 
 
-function locationPage() {
+function LocationPage() {
 
     const [locations, setLocations] = useState([]);
 
@@ -30,4 +30,4 @@ function locationPage() {
     )
 }
 
-export default locationPage
+export default LocationPage;
