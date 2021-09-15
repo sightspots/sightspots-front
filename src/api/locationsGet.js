@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export const getLocations = async () => {
-
     const baseURL = 'http://localhost:4000';
 
     try {

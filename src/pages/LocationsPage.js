@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import LocationCard from '../components/sections/LocationCard'
+import { LocationCard } from '../components/locations.index'
 import { getLocations } from "../api/locationsGet";
 
 
@@ -26,7 +26,7 @@ function LocationPage() {
     return (
       <div>
         {locations.map((location) => (
-          <LocationCard location={location} key={location._id} />
+          <LocationCard location={location} key={location._id} flag={true} />
         ))}
       </div>
     );
