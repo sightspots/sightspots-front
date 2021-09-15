@@ -16,20 +16,20 @@ function App() {
       <Router>
         <Navbar isAuth={isAuth} logout={logout} />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={LocationPage} />
           <Route exact path="/locations" component={LocationPage} />
           <Route path="/register" component={Register} />
           <Route
             path="/login"
-            render={props => (
+            render={(props) => (
               <Login isAuth={isAuth} login={login} {...props} />
             )}
           />
           <AuthRoute
             isAuth={isAuth}
             path="/user"
-            render={props => <UserPage user={user} {...props} />}
-          />          
+            render={(props) => <UserPage user={user} {...props} />}
+          />
           <Route component={NotFound} />
         </Switch>
       </Router>
