@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-function Login({ isAuth, login, location }) {
+function Login({ isAuth, login, checkAdmin, location }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
 
     const handleClick = () => {
         try {
             login({ email, password });
-            localStorage.setItem('isAuthenticated', 'true');
+            checkAdmin({ email, password });
         } catch (error) {
             alert('No has podido loguearte.');
             setEmail('');

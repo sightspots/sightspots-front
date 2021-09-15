@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logout from './auth/Logout';
 
-function Navbar({ isAuth, logout }) {
+function Navbar({ isAuth, isAdmin, logout }) {
     return (
         <nav className='navbar'>
             <Link to='/' className='navbar__link'>
@@ -11,7 +11,7 @@ function Navbar({ isAuth, logout }) {
             <Link to='/user' className='navbar__link'>
                 <div>Perfil</div>
             </Link>
-            {isAuth ?
+            {isAuth && isAdmin ?
                 <Link to='/admin' className='navbar__link'>
                     <div>Panel de admin</div>
                 </Link>

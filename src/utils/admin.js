@@ -5,7 +5,7 @@ const users = [
     { email: 'javi@test.com', password: '789', name: 'Javi', role: 'admin' },
 ];
 
-function checkAdmin({ email, password }) {
+function isAdmin({ email, password }) {
     const user = users.find(
         (user) => user.email === email && user.password === password
     );
@@ -19,4 +19,4 @@ function checkAdmin({ email, password }) {
     }
 }
 
-export default checkAdmin;
+export default isAdmin;
