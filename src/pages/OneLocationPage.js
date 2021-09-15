@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Location } from '../components/Location';
 import { oneGetLocation } from "../api/oneLocationGet";
 
-function OneLocationPage(match) {
+function OneLocationPage(props) {
 
-    const { id } = match.params
+    const { id } = props.match.params
 
     const [location, setLocation] = useState([]);
 
@@ -16,7 +16,7 @@ function OneLocationPage(match) {
     const oneGetLocationApi = async () => {
 
         try {
-            const data = await oneGetLocation();
+            const data = await oneGetLocation(id);
             setLocation(data);
         } catch (error) {
             console.log(error)
@@ -26,7 +26,7 @@ function OneLocationPage(match) {
     console.log(location)
     return (
         <div>
-            <Location key={location._id} location={location} />
+            <Location key={location._id} location={location} flag={false} />
         </div>
     )
 }

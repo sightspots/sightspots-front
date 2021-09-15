@@ -8,6 +8,9 @@ function Navbar({ isAuth, logout }) {
             <Link to='/'>
                 <div>Inicio</div>
             </Link>
+            <Link to='/admin'>
+                <div>Admin</div>
+            </Link>
             <Link to='/user'>
                 <div>Perfil</div>
             </Link>

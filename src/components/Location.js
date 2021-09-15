@@ -1,16 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export const Location = ({location}) => (
+export const Location = ({location, flag = false}) => (
   <div className="location__card">
-      <h3 className="location__done">{location.title}</h3>
-      <p className="location__name">{location.description}</p>
+      <h3>{location.title}</h3>
+      <p>{location.description}</p>
       <div>
-        <p className="location__date">{location.tags}</p>
+        <p>{location.tags}</p>
       </div>
-      <Link to={`/admin/locations/${location._id}`} className="btn btn-primary">
+      
+      {flag && (
+        <Link to={`locations/${location._id}`}>
         Ver Location
       </Link>
+    )}
+    {flag && (
+        <Link to={`admin/edit/${location._id}`}>
+        Editar Location
+      </Link>
+    )}
   </div>
 
 )

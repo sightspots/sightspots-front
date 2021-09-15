@@ -2,7 +2,20 @@ import React, { useState } from 'react'
 
 function CreateLocationForm(props) {
 
+  
+
+    const { locationToEdit } = props
+
+    const value = {};
+
+    locationToEdit.forEach(element => {
+        value.title = element.title
+        value.tag = element.tag
+        value.description = element.description
+    });
+
     const [datos, setDatos] = useState({
+        id: '',
         title: '',
         type: '',
         pictures: '',
@@ -14,23 +27,25 @@ function CreateLocationForm(props) {
 
         e.preventDefault();
 
-        const { title, type, description, pictures, latLng } = datos;
+        const { title, type, description, pictures, latLng, } = datos;
 
         if (!title && !type && !description && !latLng && !pictures) {
             console.log('Rellena todos los campos');
             return
         }
 
-        console.log('en form create', datos)
-        props.addLocation(datos);
+        console.log('En el formulario', datos)
+        props.editLocation(datos);
         setDatos({})
     }
 
     const handleInput = (event) => {
         setDatos({
             ...datos,
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            id: props.id
         })
+
     };
 
 
@@ -38,19 +53,18 @@ function CreateLocationForm(props) {
         <div>
         <br/>
         <br/>
-        <br/>
             <form encType="multipart/form-data" className="formulario" onSubmit={submited}>
                 <label>Titulo</label>
-                <input type="text" name="title" onChange={handleInput} />
+                <input type="text" name="title" value={value.title} onChange={handleInput} />
                 <br />
                 <label>Tag</label>
                 <input type="text" name="type" onChange={handleInput} />
                 <br />
                 <label>pictures</label>
-                <input type="file" name="pictures" onChange={handleInput} />
+                <input type="file" multiple name="pictures" onChange={handleInput} />
                 <br />
                 <label>Descripcion</label>
-                <input type="text" name="description" onChange={handleInput} />
+                <input type="text" name="description" value={value.description} onChange={handleInput} />
                 <br />
                 <label>Unicacion</label>
                 <input type="text" name="latLng" onChange={handleInput} />
