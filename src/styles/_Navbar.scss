@@ -1,0 +1,19 @@
+.navbar {
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    &__link {
+        padding: 20px 40px;
+        text-decoration: none;
+
+        &:visited {
+            color: inherit;
+        }
+
+        &:hover {
+            background-color: white;
+        }
+    }
+}

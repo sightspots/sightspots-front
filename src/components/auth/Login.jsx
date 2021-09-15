@@ -5,9 +5,11 @@ function Login({ isAuth, login, location }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
     const handleClick = () => {
         try {
             login({ email, password });
+            localStorage.setItem('isAuthenticated', 'true');
         } catch (error) {
             alert('No has podido loguearte.');
             setEmail('');
