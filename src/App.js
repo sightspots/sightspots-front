@@ -4,6 +4,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import signIn from './utils/auth';
 import LocationPage from './pages/LocationPage';
 import isAdmin from './utils/admin';
+import OneLocationPage from './pages/OneLocationPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,6 +23,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LocationPage} />
           <Route exact path="/locations" component={LocationPage} />
+          <Route exact path="/locations/:id" component={OneLocationPage} />
           <Route path="/register" component={Register} />
           <Route
             path="/login"
