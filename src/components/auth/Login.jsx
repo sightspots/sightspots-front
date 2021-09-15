@@ -26,13 +26,13 @@ function Login({ isAuth, login, checkAdmin, location }) {
                 value={email}
                 onChange={({ target: { value } }) => setEmail(value)}
                 type='text'
-                placeholder='email'
+                placeholder='E-mail'
             />
             <input
                 value={password}
                 onChange={({ target: { value } }) => setPassword(value)}
                 type='password'
-                placeholder='password'
+                placeholder='Contraseña'
             />
             <button onClick={handleClick}>Login</button>
         </div>
