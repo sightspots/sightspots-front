@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Location } from '../components/Location';
 import { getLocations } from "../api/locationGet";
+import LocationCard from '../components/sections/LocationCard'
 
 
 function LocationPage() {
@@ -24,10 +25,12 @@ function LocationPage() {
     }
 
     return (
-        <div>
-            {/*locations.map((location) => <Location key={location._id} location={location} />)*/}
-        </div>
-    )
+      <div>
+        {locations.map((location) => (
+          <LocationCard location={location} key={location._id} />
+        ))}
+      </div>
+    );
 }
 
 export default LocationPage;

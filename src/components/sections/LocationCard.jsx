@@ -7,14 +7,19 @@ const LocationCard = (props) => {
         <img
           className="card__img"
           style={{ width: "100%" }}
-          src={props.location.image}
+          src={
+            props.location.pictures[
+              Math.floor(Math.random() * props.location.pictures.length)
+            ]
+          }
         />
       </div>
       <div className="card__info">
         <h1>{props.location.title}</h1>
         <p>{props.location.description}</p>
         <div className="card__button-area">
-          <button>Like</button>
+          <span>Likes: {props.location.rating}</span>
+          {/* modal?? */}
           <button>Ampliar</button>
           <button>Añadir a lista</button>
         </div>
