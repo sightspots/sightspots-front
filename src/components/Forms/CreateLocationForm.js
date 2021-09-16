@@ -33,6 +33,9 @@ function CreateLocationForm(props) {
         })
     };
 
+    // TODO: El formulario no recoge las imágenes. Habrá que trastear en la petición (en /api) (también en el form de editar).
+    // TODO: Hay que hacer el select para type (también en el form de editar).
+    // TODO: Al crear location, hay que redirigir a la location creada (también en el form de editar).
 
     return (
         <div>

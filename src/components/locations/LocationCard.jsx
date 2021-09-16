@@ -1,10 +1,17 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { locationDelete } from '../../api/locationDelete';
+import { getLocations } from "../../api/locationsGet";
 
-const LocationCard = ({ location, flag = false }) => {
+const LocationCard = ({ location, setLocations, flag = false }) => {
 
   console.log('LocationCard', location)
 
+  const handleClick = async () => {
+    await locationDelete(location._id);
+    const locations = await getLocations();
+    setLocations(locations);
+  }
 
   return (
     <div className="card" style={{ border: "1px solid" }}>
@@ -27,9 +34,10 @@ const LocationCard = ({ location, flag = false }) => {
       </div>
 
       {/* TODO: Falta gestionar que aparezcan los botones según isAdmin */}
-      {flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
+      {/* TODO: Hacer que salga alguna modal o algo de confirmación de eliminación de location */}
+      {!flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
       {flag && <Link to={`/admin/edit/${location._id}`}>Editar Location</Link>}
-      {flag && <Link to={`/admin/delete/${location._id}`}>Borrar Location</Link>}
+      {flag && <button onClick={handleClick}>Borrar Location</button>}
     </div>
   );
 };

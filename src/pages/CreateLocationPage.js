@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import CreateLocationForm from '../components/Forms/CreateLocationForm'
+import CreateLocationForm from '../components/forms/CreateLocationForm'
 import { locationCreatePost } from '../api/locationCreatePost'
 
 function CreateLocationPage({ isAdmin }) {
