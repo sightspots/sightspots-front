@@ -4,8 +4,8 @@ export const locationCreatePost = async (valores) => {
     const { title, type, description, pictures, latLng } = valores.props;
     const baseURL = 'http://localhost:4000';
 
-    console.log('VALORES en locationCreatePost', valores);
-    console.log('VALORES.PROPS en locationCreatePost', valores.props);
+    // console.log('VALORES en locationCreatePost', valores);
+    // console.log('VALORES.PROPS en locationCreatePost', valores.props);
 
     try {
         const response = await axios({
@@ -21,9 +21,9 @@ export const locationCreatePost = async (valores) => {
         });
 
         const location = response.data;
-        console.log('LOCATION en locationCreatePost', location);
-        return location
+        console.log('LOCATION SUBIDA EN API', location);
 
+        return location
     } catch (error) {
         console.log(error)
     }

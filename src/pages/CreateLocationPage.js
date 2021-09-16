@@ -10,12 +10,8 @@ function CreateLocationPage({ isAdmin }) {
             return
         }
 
-        console.log('Peticion post')
         locationCreatePost(datos);
-
-        return () => {
-            console.log('Desmontando')
-        }
+        
     }, [datos])
 
     const addLocation = (props) => {

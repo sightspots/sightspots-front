@@ -24,7 +24,6 @@ function CreateLocationForm(props) {
     })
 
     const submited = (e) => {
-
         e.preventDefault();
 
         const { title, type, description, pictures, latLng, } = datos;

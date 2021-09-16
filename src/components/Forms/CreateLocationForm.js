@@ -23,7 +23,7 @@ function CreateLocationForm(props) {
             return
         }
 
-        console.log('en form create', datos)
+        console.log('valores del formulario ->', datos)
         props.addLocation(datos);
         setDatos({});
         await getLocations();
@@ -34,7 +34,8 @@ function CreateLocationForm(props) {
     const handleInput = (event) => {
         setDatos({
             ...datos,
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            [event.target.file]: event.target.value,
         })
     };
 
@@ -51,7 +52,7 @@ function CreateLocationForm(props) {
                 <input type="text" name="type" onChange={handleInput} />
                 <br />
                 <label>Imágenes</label>
-                <input type="file" name="pictures" onChange={handleInput} />
+                <input type="file" name="pictures" multiple onChange={handleInput} />
                 <br />
                 <label>Descripción</label>
                 <input type="text" name="description" onChange={handleInput} />
