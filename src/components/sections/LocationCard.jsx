@@ -1,5 +1,4 @@
 import React from "react";
-import LocationModal from "./LocationModal";
 
 const LocationCard = (props) => {
   return (
@@ -27,9 +26,6 @@ const LocationCard = (props) => {
           <button>tipo</button>
         </div>
       </div>
-          <LocationModal>
-          <h1>Modal</h1>
-          </LocationModal>
     </div>
   );
 };
