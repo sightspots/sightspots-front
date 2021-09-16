@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router';
+import { getLocations } from "../../api/locationsGet";
 
 function CreateLocationForm(props) {
-
     const [datos, setDatos] = useState({
         title: '',
         type: '',
@@ -10,8 +11,9 @@ function CreateLocationForm(props) {
         latLng: ''
     })
 
-    const submited = (e) => {
+    const history = useHistory();
 
+    const submitted = async (e) => {
         e.preventDefault();
 
         const { title, type, description, pictures, latLng } = datos;
@@ -23,7 +25,10 @@ function CreateLocationForm(props) {
 
         console.log('en form create', datos)
         props.addLocation(datos);
-        setDatos({})
+        setDatos({});
+        await getLocations();
+
+        return history.goBack();
     }
 
     const handleInput = (event) => {
@@ -35,30 +40,26 @@ function CreateLocationForm(props) {
 
     // TODO: El formulario no recoge las imágenes. Habrá que trastear en la petición (en /api) (también en el form de editar).
     // TODO: Hay que hacer el select para type (también en el form de editar).
-    // TODO: Al crear location, hay que redirigir a la location creada (también en el form de editar).
 
     return (
         <div>
-        <br/>
-        <br/>
-        <br/>
-            <form encType="multipart/form-data" className="formulario" onSubmit={submited}>
-                <label>Titulo</label>
+            <form encType="multipart/form-data" className="formulario" onSubmit={submitted}>
+                <label>Título</label>
                 <input type="text" name="title" onChange={handleInput} />
                 <br />
-                <label>Tag</label>
+                <label>Tipo</label>
                 <input type="text" name="type" onChange={handleInput} />
                 <br />
-                <label>pictures</label>
+                <label>Imágenes</label>
                 <input type="file" name="pictures" onChange={handleInput} />
                 <br />
-                <label>Descripcion</label>
+                <label>Descripción</label>
                 <input type="text" name="description" onChange={handleInput} />
                 <br />
-                <label>Unicacion</label>
+                <label>Ubicación</label>
                 <input type="text" name="latLng" onChange={handleInput} />
                 <br />
-                <button >Enviar</button>
+                <button>Enviar</button>
             </form>
         </div>
     )

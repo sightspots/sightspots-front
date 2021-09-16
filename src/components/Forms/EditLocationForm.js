@@ -48,7 +48,9 @@ function CreateLocationForm(props) {
 
     };
 
-    //  TODO: Hay que hacer que el formulario recoja los valores de la location y que permita editar los campos.
+    // TODO: Hay que hacer que el formulario recoja los valores de la location y que permita editar los campos.
+    // TODO: Al editar location, hay que redirigir a la location creada.
+
     return (
         <div>
         <br/>
