@@ -41,7 +41,7 @@ const LocationCard = ({ location, flag = false }) => {
         </Link>
       )}
       {flag && (
-        <Link to={`/edit/${location._id}`}>
+        <Link to={`/admin/edit/${location._id}`}>
           Editar Location
         </Link>
       )}

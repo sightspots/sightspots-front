@@ -9,7 +9,7 @@ function App() {
   const isAuth = user != null;
 
   const logout = () => setUser(null);
- 
+
   return (
     <div className="App">
       <Router>
@@ -31,10 +31,14 @@ function App() {
             render={props => <UserPage user={user} {...props} />}
           />
           <Route
-            path="/admin"
+            exact path="/admin"
             render={props => <AdminPanel isAuth={isAuth} isAdmin={admin} user={user} {...props} />} />
-          <Route path="/admin/create" component={CreateLocationPage} />
-          <Route path="/admin/edit/:id" component={EditLocationPage} />
+          <Route
+            exact path="/admin/create"
+            render={props => <CreateLocationPage isAuth={isAuth} isAdmin={admin} user={user} {...props} />} />
+          <Route
+            exact path="/admin/edit/:id"
+            render={props => <EditLocationPage isAuth={isAuth} isAdmin={admin} user={user} {...props} />} />
           <Route component={NotFound} />
         </Switch>
       </Router>

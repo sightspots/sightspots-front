@@ -26,7 +26,7 @@ function AdminPanel({ isAuth, isAdmin, user }) {
 
     return (
         <div>
-            {isAuth && isAdmin === true ?
+            {isAuth && isAdmin ?
                 <div>
                     <h1>Panel de administración</h1>
                     <p>Hola, {name}.</p>
