@@ -1,5 +1,7 @@
-@import "Navbar";
+@import "./settings/aa_reset";
+@import "./settings/colors";
+@import "./settings/fonts";
+@import "./settings/specials";
 
-*{
-    margin: 0;
-}
+@import "./settings/Location";
+@import "./settings/Navbar";

@@ -3,21 +3,17 @@ import { Link } from 'react-router-dom';
 import LocationModal from "./LocationModal";
 
 const LocationCard = ({ location, flag = false }) => {
-  console.log(location);
+
+  console.log('LocationCard', location)
+
+
   return (
     <div className="card" style={{ border: "1px solid" }}>
       <div className="card__map" style={{ width: "150px" }}>
-        <img
-          className="card__img"
-          style={{ width: "100%" }}
-          // TODO: No recibe bien la imagen (?)
-          // src={
-          //   location.pictures[
-          //   Math.floor(Math.random() * location.pictures.length)
-          //   ]
-          // }
-          alt={location.title}
-        />
+        <img src={location.pictures !== undefined ? location.pictures[
+          Math.floor(Math.random() * (location.pictures.length - 1))] : ''} 
+            alt={location.title}
+          />
       </div>
       <div className="card__info">
         <h1>{location.title}</h1>
@@ -50,3 +46,14 @@ const LocationCard = ({ location, flag = false }) => {
 };
 
 export default LocationCard;
+
+
+
+// location.pictures.length > 1 ? location.pictures[
+//   Math.floor(Math.random() * location.pictures.length)
+//   ] : location.pictures
+
+//location.pictures !== undefined ? location.pictures[0] : location.pictures
+
+// {location.pictures !== undefined ? location.pictures[
+//   Math.floor(Math.random() * location.pictures.length - 1)] : location.pictures }

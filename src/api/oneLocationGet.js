@@ -10,7 +10,6 @@ export const oneGetLocation = async (id) => {
         });
 
         const location = response.data;
-        console.log('LOCATION en oneLocationGet', location);
         return location
 
     } catch (error) {

@@ -1,0 +1,24 @@
+.Location {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: cornsilk;
+
+    &__slider {
+        height: 80vh;
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        mix-blend-mode: darken;
+    }
+}

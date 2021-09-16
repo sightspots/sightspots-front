@@ -1,12 +1,14 @@
 .navbar {
+    width: 100%;
     background-color: gainsboro;
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
 
     &__link {
-        padding: 20px 40px;
+        width: 25%;
+        padding: 20px 0;
         text-decoration: none;
+        text-align: center;
 
         &:visited {
             color: inherit;

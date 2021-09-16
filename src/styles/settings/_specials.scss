@@ -1,0 +1,45 @@
+.fake-div {
+    width: 100%;
+    height: 10vh;
+    background: none;
+
+    @media (min-width:560px) {
+        display: none;
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+.active {
+    left: 0;
+ }
+
+.bg-n {
+    background: none;
+}
+
+.bg-1 {
+    background: linear-gradient(40deg, var(--orange-hard), var(--sky-hard));
+}
+
+.bg-2 {
+    background: linear-gradient(165deg, var(--white-hard), var(--grey-soft));
+}
+
+.bg-3 {
+    background: linear-gradient(210deg, var(--violet-soft), var(--orange-soft));
+}
+
+.bg-4 {
+    background: linear-gradient(210deg, var(--yellow-soft), var(--sky-soft));
+}
+
+.bg-5 {
+    background: linear-gradient(325deg, var(--sky-hard), var(--violet-medium));
+}
+
+.bg-6 {
+    background: linear-gradient(40deg, var(--violet-medium), var(--yellow-soft));
+}
