@@ -28,21 +28,10 @@ const LocationCard = ({ location, flag = false }) => {
 
       {/* TODO: Falta gestionar que aparezcan los botones según isAdmin */}
       {flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
-      {flag && <Link to={`/edit/${location._id}`}>Editar Location</Link>}
-      {flag && <Link to={`/delete/${location._id}`}>Borrar Location</Link>}
+      {flag && <Link to={`/admin/edit/${location._id}`}>Editar Location</Link>}
+      {flag && <Link to={`/admin/delete/${location._id}`}>Borrar Location</Link>}
     </div>
   );
 };
 
 export default LocationCard;
-
-
-
-// location.pictures.length > 1 ? location.pictures[
-//   Math.floor(Math.random() * location.pictures.length)
-//   ] : location.pictures
-
-//location.pictures !== undefined ? location.pictures[0] : location.pictures
-
-// {location.pictures !== undefined ? location.pictures[
-//   Math.floor(Math.random() * location.pictures.length - 1)] : location.pictures }

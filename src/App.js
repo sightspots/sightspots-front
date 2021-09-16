@@ -2,18 +2,13 @@ import React, { useState } from 'react'
 import { Navbar, Register, Login, UserPage, AdminPanel, NotFound, AuthRoute } from './components/root.index'
 import { LocationsPage, OneLocationPage, CreateLocationPage, EditLocationPage } from './components/locations.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import signIn from './utils/auth';
-import isAdmin from './utils/admin';
 
 function App() {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(null);
   const isAuth = user != null;
 
-  const login = ({ email, password }) => setUser(signIn({ email, password }));
   const logout = () => setUser(null);
-
-  const checkAdmin = ({ email, password }) => setAdmin(isAdmin({ email, password }));
 
   return (
     <div className="App">
@@ -27,7 +22,7 @@ function App() {
           <Route
             path="/login"
             render={props => (
-              <Login isAuth={isAuth} login={login} checkAdmin={checkAdmin} {...props} />
+              <Login isAuth={isAuth} setUser={setUser} setAdmin={setAdmin} {...props} />
             )}
           />
           <AuthRoute
@@ -36,10 +31,14 @@ function App() {
             render={props => <UserPage user={user} {...props} />}
           />
           <Route
-            path="/admin"
-            render={props => <AdminPanel isAuth={isAuth} isAdmin={admin} user={user} {...props} />} />
-          <Route path="/admin/create" component={CreateLocationPage} />
-          <Route path="/admin/edit/:id" component={EditLocationPage} />
+            exact path="/admin"
+            render={props => <AdminPanel isAdmin={admin} user={user} {...props} />} />
+          <Route
+            exact path="/admin/create"
+            render={props => <CreateLocationPage isAdmin={admin} {...props} />} />
+          <Route
+            exact path="/admin/edit/:id"
+            render={props => <EditLocationPage isAdmin={admin} {...props} />} />
           <Route component={NotFound} />
         </Switch>
       </Router>
