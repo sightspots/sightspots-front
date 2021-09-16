@@ -16,7 +16,9 @@ function App() {
         <Navbar isAuth={isAuth} isAdmin={admin} logout={logout} />
         <Switch>
           <Route exact path="/" component={LocationsPage} />
-          <Route exact path="/locations" component={LocationsPage} />
+          <Route
+            exact path="/locations"
+            render={props => <LocationsPage isAdmin={admin} {...props} />} />
           <Route exact path="/locations/:id" component={OneLocationPage} />
           <Route path="/register" component={Register} />
           <Route
@@ -32,13 +34,13 @@ function App() {
           />
           <Route
             exact path="/admin"
-            render={props => <AdminPanel isAuth={isAuth} isAdmin={admin} user={user} {...props} />} />
+            render={props => <AdminPanel isAdmin={admin} user={user} {...props} />} />
           <Route
             exact path="/admin/create"
-            render={props => <CreateLocationPage isAuth={isAuth} isAdmin={admin} user={user} {...props} />} />
+            render={props => <CreateLocationPage isAdmin={admin} {...props} />} />
           <Route
             exact path="/admin/edit/:id"
-            render={props => <EditLocationPage isAuth={isAuth} isAdmin={admin} user={user} {...props} />} />
+            render={props => <EditLocationPage isAdmin={admin} {...props} />} />
           <Route component={NotFound} />
         </Switch>
       </Router>

@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import LocationModal from "./LocationModal";
 
-const LocationCard = ({ location, flag = false }) => {
-  console.log(location);
+const LocationCard = ({ location }) => {
   return (
     <div className="card" style={{ border: "1px solid" }}>
       <div className="card__map" style={{ width: "150px" }}>
@@ -35,16 +34,14 @@ const LocationCard = ({ location, flag = false }) => {
       </LocationModal>
 
       {/* TODO: Falta gestionar que aparezcan los botones según isAdmin */}
-      {flag && (
-        <Link to={`/locations/${location._id}`}>
-          Ver Location
-        </Link>
-      )}
-      {flag && (
-        <Link to={`/admin/edit/${location._id}`}>
-          Editar Location
-        </Link>
-      )}
+
+      <Link to={`/locations/${location._id}`}>
+        Ver localización
+      </Link>
+      <Link to={`/admin/edit/${location._id}`}>
+        Editar localización
+      </Link>
+
     </div>
   );
 };

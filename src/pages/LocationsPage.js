@@ -3,8 +3,7 @@ import { LocationCard } from '../components/locations.index'
 import { getLocations } from "../api/locationsGet";
 
 
-function LocationPage() {
-
+function LocationPage(isAdmin) {
     const [locations, setLocations] = useState([]);
 
     useEffect(() => {
@@ -26,7 +25,7 @@ function LocationPage() {
     return (
       <div>
         {locations.map((location) => (
-          <LocationCard location={location} key={location._id} flag={true} />
+          <LocationCard location={location} key={location._id} />
         ))}
       </div>
     );

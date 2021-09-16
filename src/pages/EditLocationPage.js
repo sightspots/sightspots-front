@@ -4,7 +4,7 @@ import { locationEditPut } from '../api/locationEditPut'
 
 function EditLocationPage(props) {
     const { id } = props.match.params
-    const { isAuth, isAdmin } = props
+    const { isAdmin } = props
 
     let locationsStorage = JSON.parse(window.localStorage.getItem("locations"))
 
@@ -35,7 +35,7 @@ function EditLocationPage(props) {
 
     return (
         <div>
-            {isAuth && isAdmin ?
+            {isAdmin ?
                 <div>
                     <h1>Editar localización</h1>
                     <EditLocationForm locationToEdit={locationToEdit} editLocation={editLocation} id={id} />

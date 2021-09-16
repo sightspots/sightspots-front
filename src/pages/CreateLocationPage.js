@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react'
 import CreateLocationForm from '../components/forms/CreateLocationForm'
 import { locationCreatePost } from '../api/locationCreatePost'
 
-function CreateLocationPage({ isAuth, isAdmin }) {
-
+function CreateLocationPage({ isAdmin }) {
     const [datos, setDatos] = useState({});
 
     useEffect(() => {
-
         if (!datos.props) {
             return
         }
@@ -21,16 +19,13 @@ function CreateLocationPage({ isAuth, isAdmin }) {
     }, [datos])
 
     const addLocation = (props) => {
-
         const newDatas = { ...datos, props };
         setDatos(newDatas);
-
     }
-
 
     return (
         <div>
-            {isAuth && isAdmin ?
+            {isAdmin ?
                 <div>
                     <h1>Crear nueva localización</h1>
                     <CreateLocationForm addLocation={addLocation} />
