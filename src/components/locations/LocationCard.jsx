@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import LocationModal from "./LocationModal";
 
 const LocationCard = ({ location, flag = false }) => {
   console.log(location);
@@ -30,21 +29,11 @@ const LocationCard = ({ location, flag = false }) => {
           <button>tipo</button>
         </div>
       </div>
-      <LocationModal>
-        <h1>Modal</h1>
-      </LocationModal>
 
       {/* TODO: Falta gestionar que aparezcan los botones según isAdmin */}
-      {flag && (
-        <Link to={`/locations/${location._id}`}>
-          Ver Location
-        </Link>
-      )}
-      {flag && (
-        <Link to={`/edit/${location._id}`}>
-          Editar Location
-        </Link>
-      )}
+      {flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
+      {flag && <Link to={`/edit/${location._id}`}>Editar Location</Link>}
+      {flag && <Link to={`/delete/${location._id}`}>Borrar Location</Link>}
     </div>
   );
 };
