@@ -1,10 +1,10 @@
 import Navbar from './Navbar';
-import Home from './Home';
 import Register from './auth/Register';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
-import UserPage from './UserPage';
-import NotFound from './NotFound';
+import UserPage from '../pages/UserPage';
+import AdminPanel from '../pages/AdminPanel';
+import NotFound from '../pages/NotFound';
 import AuthRoute from './auth/AuthRoute';
 
-export { Navbar, Home, Register, Login, Logout, UserPage, NotFound, AuthRoute };
+export { Navbar, Register, Login, Logout, UserPage, AdminPanel, NotFound, AuthRoute };

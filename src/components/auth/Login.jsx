@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-function Login({ isAuth, login, location }) {
+function Login({ isAuth, login, checkAdmin, location }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleClick = () => {
         try {
             login({ email, password });
+            checkAdmin({ email, password });
         } catch (error) {
             alert('No has podido loguearte.');
             setEmail('');
@@ -25,13 +26,13 @@ function Login({ isAuth, login, location }) {
                 value={email}
                 onChange={({ target: { value } }) => setEmail(value)}
                 type='text'
-                placeholder='email'
+                placeholder='E-mail'
             />
             <input
                 value={password}
                 onChange={({ target: { value } }) => setPassword(value)}
                 type='password'
-                placeholder='password'
+                placeholder='Contraseña'
             />
             <button onClick={handleClick}>Login</button>
         </div>

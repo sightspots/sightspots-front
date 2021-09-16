@@ -8,7 +8,7 @@ function Logout({ logout, history }) {
     };
     
     return (
-        <div onClick={handleClick}>Logout</div>
+        <div onClick={handleClick}  className='navbar__link'>Logout</div>
     );
 }
 
