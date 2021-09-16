@@ -8,14 +8,20 @@
 import { getUsers } from "../api/usersGet";
 
 async function signIn({ email, password }) {
-    const users = await getUsers();
-    const user = users.find(
-        (user) => user.email === email && user.password === password
-    );
+    try {
+        const users = await getUsers();
+        console.log('USERS EN AUTH', users);
+        const user = users.find(
+            (user) => user.email === email && user.password === password
+        );
+        console.log('USER ENCONTRADO', user);
 
-    if (user === undefined) throw new Error();
+        if (user === undefined) throw new Error();
+        return user;
 
-    return user;
+    } catch (error) {
+        console.log('ERROR EN CATCH', error);
+    }
 }
 
 export default signIn;
