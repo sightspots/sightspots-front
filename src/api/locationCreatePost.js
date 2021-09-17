@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 export const locationCreatePost = async (valores) => {
+
     const { title, type, description, pictures, latLng } = valores.props;
+
     const baseURL = 'http://localhost:4000';
 
-    console.log('VALORES en locationCreatePost', valores);
-    console.log('VALORES.PROPS en locationCreatePost', valores.props);
+    console.log('ULTIMO CONSOLE', valores.props);
 
     try {
         const response = await axios({

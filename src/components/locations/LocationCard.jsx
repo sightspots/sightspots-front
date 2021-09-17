@@ -5,7 +5,6 @@ import { getLocations } from "../../api/locationsGet";
 
 const LocationCard = ({ location, setLocations, flag = false }) => {
 
-  console.log('LocationCard', location)
 
   const handleClick = async () => {
     await locationDelete(location._id);

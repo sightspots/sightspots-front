@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import EditLocationForm from '../components/forms/EditLocationForm'
+import EditLocationForm from '../components/Forms/EditLocationForm'
 import { locationEditPut } from '../api/locationEditPut'
 
 function EditLocationPage(props) {
