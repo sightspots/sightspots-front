@@ -22,7 +22,7 @@ function LocationView({ location }) {
     }
 
     let width = document.documentElement.clientWidth || document.body.clientWidth
-    let height = (window.screen.height)
+    let height = (window.screen.height/1.2)
 
     console.log(location)
 
