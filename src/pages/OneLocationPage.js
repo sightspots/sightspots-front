@@ -23,11 +23,13 @@ function OneLocationPage(props) {
     }
     
     return (
-        <div>
-            {/* <LocationCard location={location} flag={false}  /> */}
+        <>
             <LocationView location={location} />
-        </div>
+        </>
     )
 }
 
 export default OneLocationPage
+
+
+// <LocationCard location={location} flag={false}  />

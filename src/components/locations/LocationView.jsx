@@ -1,19 +1,56 @@
 import React from 'react'
-import { imagesRandom } from '../../utils/functions'
+import SimpleImageSlider from "react-simple-image-slider";
+import LocationInfo from './LocationInfo';
+import LocationDescription from './LocationDescription';
+import LocationHeader from './LocationHeader';
+import LocationIcon from './LocationIcon';
+
 
 function LocationView({ location }) {
+
+    const pictures = location.pictures;
+    const images = [];
+
+    if (pictures !== undefined) {
+        pictures.map(image => {
+            let obj = { url: image }
+            return images.push(obj)
+        });
+    } else {
+        console.log('Esperando...')
+    }
+
+    let width = window.screen.width
+    let height = (window.screen.height)
+
+    console.log(location)
 
     return (
         <div className="Location">
             <div className="Location__slider">
-                <img className="Location__image" src={location.pictures !== undefined ? imagesRandom(location.pictures) : '' } alt={location.title} />
+                {pictures !== undefined ?
+
+                    <SimpleImageSlider
+
+                        width={width}
+                        height={height}
+                        images={images}
+                        showBullets={true}
+                        showNavs={true}
+                    />
+
+                    : ''}
+
+
             </div>
-            <div className="Location__header">
-                <div className="Location__btnBack"></div>
-                <div className="Location__avatar"></div>
-            </div>
+            <LocationHeader />
+            <LocationInfo location={location} />
+            <LocationIcon location={location} />
+            <LocationDescription location={location} />
         </div>
     )
 }
+
+// profile={profile}
 
 export default LocationView

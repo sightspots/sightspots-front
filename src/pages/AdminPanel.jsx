@@ -4,8 +4,8 @@ import { getLocations } from "../api/locationsGet";
 import { Link } from 'react-router-dom';
 
 function AdminPanel({ isAdmin, user }) {
-    const { name } = user || {};
 
+    const { name } = user || {};
     const [locations, setLocations] = useState([]);
 
     useEffect(() => {

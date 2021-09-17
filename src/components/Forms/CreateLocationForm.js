@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router';
-import { getLocations } from "../../api/locationsGet";
 
 function CreateLocationForm(props) {
     const [datos, setDatos] = useState({
@@ -13,7 +12,7 @@ function CreateLocationForm(props) {
 
     const history = useHistory();
 
-    const submitted = async (e) => {
+    const submitted = (e) => {
         e.preventDefault();
 
         console.log('Formulario', datos)
@@ -38,9 +37,9 @@ function CreateLocationForm(props) {
 
         setDatos({});
 
-        await getLocations();
-
-        return history.goBack();
+        return setTimeout(() => {
+            history.goBack();
+        }, 1400);
     }
 
     const handleInput = (e) => {
@@ -74,7 +73,7 @@ function CreateLocationForm(props) {
                 <label>Tipo</label>
                 <select name="type" onChange={handleSelect}>
                     <option value="naturaleza">Naturaleza</option>
-                    <option value="construcción civil">Construcción civil</option>
+                    <option selected value="construcción civil">Construcción civil</option>
                     <option value="construcción religiosa">Construcción religiosa</option>
                     <option value="galería de arte">Galería de arte</option>
                     <option value="jardín botánico">Jardín botánico</option>
