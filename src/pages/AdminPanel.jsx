@@ -24,6 +24,7 @@ function AdminPanel({ isAdmin, user }) {
 
     window.localStorage.setItem("locations", JSON.stringify(locations));
 
+
     return (
         <div>
             {isAdmin ?

@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router';
 
-function CreateLocationForm(props) {
+function EditLocationForm(props) {
 
-  
 
     const { locationToEdit } = props
-
+    const history = useHistory();
     const value = {};
 
     locationToEdit.forEach(element => {
         value.title = element.title
-        value.tag = element.tag
+        value.type = element.type
+        value.latLng = element.latLng
         value.description = element.description
     });
 
@@ -18,33 +19,54 @@ function CreateLocationForm(props) {
         id: '',
         title: '',
         type: '',
-        pictures: '',
+        pictures: [],
         description: '',
         latLng: ''
     })
 
     const submited = (e) => {
-        e.preventDefault();
 
-        const { title, type, description, pictures, latLng, } = datos;
+        const { title, type, description, latLng, pictures } = datos
 
-        if (!title && !type && !description && !latLng && !pictures) {
-            console.log('Rellena todos los campos');
-            return
-        }
+        let formData = new FormData();
+            formData.append('title', title);
+            formData.append('description', description);
+            formData.append('type', type);
+            formData.append('latLng', latLng);
+            for (const key of Object.keys(pictures)) {
+                formData.append('pictures', pictures[key]);
+            }
 
-        console.log('En el formulario', datos)
-        props.editLocation(datos);
+        props.editLocation(formData);
         setDatos({})
+
+        return setTimeout(() => {
+            history.goBack();
+        }, 1400);
+        
     }
 
     const handleInput = (event) => {
         setDatos({
             ...datos,
             [event.target.name]: event.target.value,
-            id: props.id
+            id: props._id
         })
 
+    };
+
+    const handleFile = (event) => {
+        setDatos({
+            ...datos,
+            pictures: [...datos.pictures, ...event.target.files],
+        })
+    };
+
+    const handleSelect = (event) => {
+        setDatos({
+            ...datos,
+            type: event.target.value,
+        })
     };
 
     // TODO: Hay que hacer que el formulario recoja los valores de la location y que permita editar los campos.
@@ -56,19 +78,27 @@ function CreateLocationForm(props) {
         <br/>
             <form encType="multipart/form-data" className="formulario" onSubmit={submited}>
                 <label>Titulo</label>
-                <input type="text" name="title" value={value.title} onChange={handleInput} />
+                <input type="text" name="title" value={datos.title === '' ? value.title : datos.title} onChange={handleInput} />
                 <br />
-                <label>Tag</label>
-                <input type="text" name="type" onChange={handleInput} />
+                <label>Tipo</label>
+                <select name="type" onChange={handleSelect}>
+                    <option value="naturaleza">Naturaleza</option>
+                    <option selected value="construcción civil">Construcción civil</option>
+                    <option value="construcción religiosa">Construcción religiosa</option>
+                    <option value="galería de arte">Galería de arte</option>
+                    <option value="jardín botánico">Jardín botánico</option>
+                    <option value="zoológico">Zoológico</option>
+                    <option value="monumento">Monumento</option>
+                </select>
                 <br />
                 <label>pictures</label>
-                <input type="file" multiple name="pictures" onChange={handleInput} />
+                <input type="file" multiple name="pictures" onChange={handleFile} />
                 <br />
                 <label>Descripcion</label>
-                <input type="text" name="description" value={value.description} onChange={handleInput} />
+                <input type="text" name="description" value={datos.description === '' ? value.description : datos.description} onChange={handleInput} />
                 <br />
                 <label>Unicacion</label>
-                <input type="text" name="latLng" onChange={handleInput} />
+                <input type="text" name="latLng" value={datos.latLng === '' ? value.latLng : datos.latLng} onChange={handleInput} />
                 <br />
                 <button >Enviar</button>
             </form>
@@ -76,4 +106,4 @@ function CreateLocationForm(props) {
     )
 }
 
-export default CreateLocationForm
+export default EditLocationForm
