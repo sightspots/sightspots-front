@@ -7,6 +7,8 @@ import { faPaintBrush } from '@fortawesome/free-solid-svg-icons' // galería de 
 import { faSeedling } from '@fortawesome/free-solid-svg-icons' // jadrin botanico
 import { faHippo } from '@fortawesome/free-solid-svg-icons' // zoologico
 import { faMonument } from '@fortawesome/free-solid-svg-icons' // monumento
+import { faHeart } from '@fortawesome/free-solid-svg-icons' // monumento
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons' // monumento
 
 
 function LocationIcon({ location }) {
@@ -24,6 +26,7 @@ function LocationIcon({ location }) {
     const types = [];
     const icons = [];
     let key = 0;
+    let iconIcon = faThumbsUp
 
     if (location !== undefined) {
 
@@ -52,22 +55,37 @@ function LocationIcon({ location }) {
             }
         })
 
-        console.log('Iconos', icons)
+        if (!window.localStorage.getItem(location.title) && location.title !== undefined) {
+            window.localStorage.setItem(location.title, false);
+        }
+
 
     } else {
         console.log('Esperando...')
     }
 
 
+    const handleClick = () => {
+
+        window.localStorage.setItem(location.title, true);
+        window.localStorage.getItem(location.title);
+
+        iconIcon = faHeart
+        console.log(iconIcon)
+    }
+
     return (
         <div className="Location__card">
-           <div className="Location__icon">
+            <div className="Location__icon">
                 {icons.map(icon => {
                     return icon !== undefined ? <FontAwesomeIcon key={key++} icon={icon} /> : ''
                 })}
-           </div>
+                <FontAwesomeIcon onClick={handleClick} style={{ marginLeft: '30px' }} icon={iconIcon} />
+            </div>
         </div>
     )
 }
 
 export default LocationIcon
+
+// window.localStorage.getItem(location.title)  ? faHeart : faThumbsUp

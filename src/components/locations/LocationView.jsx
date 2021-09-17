@@ -30,7 +30,7 @@ function LocationView({ location }) {
     let width = document.documentElement.clientWidth || document.body.clientWidth
     let height = (window.screen.height/1.2)
 
-    location.title !== undefined ? window.localStorage.setItem(location.title, 0) : console.log('Esperando...')
+    
 
     console.log(location)
 
