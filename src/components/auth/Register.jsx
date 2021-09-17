@@ -44,12 +44,10 @@ function Register({ isAuth, setUser }) {
     };
 
     const handleFile = (event) => {
-        console.log('event.target.files ->', event.target.files);
         setRegisterFormValues({
             ...registerFormValues,
             avatar: event.target.files[0],
         });
-        console.log('registerFormValues tras el seteo de avatar ->', registerFormValues);
     };
 
     if (isAuth) return <Redirect to='/' />;
