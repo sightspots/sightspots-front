@@ -3,6 +3,8 @@ import { Navbar, Register, Login, UserPage, AdminPanel, NotFound, AuthRoute } fr
 import { LocationsPage, OneLocationPage, CreateLocationPage, EditLocationPage } from './components/locations.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
+// maps
+
 function App() {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(null);
