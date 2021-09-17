@@ -25,14 +25,11 @@ const LocationCard = ({ location, setLocations, flag = false }) => {
         <p>{location.description}</p>
         <div className="card__button-area">
           <span>Likes: {location.rating}</span>
-          {/* modal?? */}
           <button>Ampliar</button>
-          {/* type */}
           <button>tipo</button>
         </div>
       </div>
 
-      {/* TODO: Hacer que salga alguna modal o algo de confirmación de eliminación de location */}
       {!flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
       {flag && <Link to={`/admin/edit/${location._id}`}>Editar Location</Link>}
       {flag && <button onClick={handleClick}>Borrar Location</button>}
