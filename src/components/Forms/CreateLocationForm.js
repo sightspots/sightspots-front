@@ -18,8 +18,26 @@ function CreateLocationForm(props) {
 
         console.log('Formulario', datos)
 
-        props.addLocation(datos);
+        const { title, type, description, latLng, pictures } = datos
+
+        if (!title || !type || !description || !latLng || !pictures) {
+            console.log('Rellena todos los campos');
+            return
+        }
+
+        let formData = new FormData();
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('type', type);
+        formData.append('latLng', latLng);
+        for (const key of Object.keys(pictures)) {
+            formData.append('pictures', pictures[key]);
+        }
+
+        props.addLocation(formData);
+
         setDatos({});
+
         await getLocations();
 
         return history.goBack();
@@ -29,18 +47,24 @@ function CreateLocationForm(props) {
 
         setDatos({
             ...datos,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         })
     };
 
-    const handleFiles = (e) => {
-        setDatos({...datos, 'pictures': e.target.files})
-    }
+    const handleFile = (event) => {
+        setDatos({
+            ...datos,
+            pictures: [...datos.pictures, ...event.target.files],
+        })
+    };
 
-
-    // TODO: El formulario no recoge las imágenes. Habrá que trastear en la petición (en /api) (también en el form de editar).
-    // TODO: Hay que hacer el select para type (también en el form de editar).
-
+    const handleSelect = (event) => {
+        setDatos({
+            ...datos,
+            type: event.target.value,
+        })
+    };
+    
     return (
         <div>
             <form encType="multipart/form-data" className="formulario" onSubmit={submitted}>
@@ -48,20 +72,28 @@ function CreateLocationForm(props) {
                 <input type="text" name="title" onChange={handleInput} />
                 <br />
                 <label>Tipo</label>
-                <input type="text" name="type" onChange={handleInput} />
+                <select name="type" onChange={handleSelect}>
+                    <option value="naturaleza">Naturaleza</option>
+                    <option value="construcción civil">Construcción civil</option>
+                    <option value="construcción religiosa">Construcción religiosa</option>
+                    <option value="galería de arte">Galería de arte</option>
+                    <option value="jardín botánico">Jardín botánico</option>
+                    <option value="zoológico">Zoológico</option>
+                    <option value="monumento">Monumento</option>
+                </select>
                 <br />
                 <label>Imágenes</label>
-                <input type="file" multiple onChange={handleFiles} />
+                <input type="file" name="pictures" multiple onChange={handleFile} />
                 <br />
                 <label>Descripción</label>
-                <input type="text" name="description" onChange={handleInput} />
+                <textarea name="description" onChange={handleInput} />
                 <br />
                 <label>Ubicación</label>
                 <input type="text" name="latLng" onChange={handleInput} />
                 <br />
                 <button>Enviar</button>
-            </form>
-        </div>
+            </form >
+        </div >
     )
 }
 

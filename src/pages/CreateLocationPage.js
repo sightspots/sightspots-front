@@ -11,29 +11,10 @@ function CreateLocationPage({ isAdmin }) {
             return
         }
 
-        locationCreatePost(datos);
+        locationCreatePost(datos);        
     }, [datos])
 
     const addLocation = (props) => {
-
-        // const { title, type, description, latLng, images } = props;
-
-        // const pictures = [];
-
-        // for (let i = 0; i < images.length; i++) {
-        //     pictures.push(images[i])
-        // }
-        
-        // const newObject = {
-        //     title,
-        //     type,
-        //     pictures,
-        //     description,
-        //     latLng
-        // }
-
-        // console.log('NUEVO OBJETO', newObject)
-
         const newDatas = { ...datos, props };
         setDatos(newDatas);
     }

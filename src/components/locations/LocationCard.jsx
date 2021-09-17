@@ -5,7 +5,6 @@ import { getLocations } from "../../api/locationsGet";
 
 const LocationCard = ({ location, setLocations, flag = false }) => {
 
-
   const handleClick = async () => {
     await locationDelete(location._id);
     const locations = await getLocations();
@@ -14,11 +13,12 @@ const LocationCard = ({ location, setLocations, flag = false }) => {
 
   return (
     <div className="card" style={{ border: "1px solid" }}>
-      <div className="card__map" style={{ width: "150px" }}>
+      <div className="card__map">
         <img src={location.pictures !== undefined ? location.pictures[
-          Math.floor(Math.random() * (location.pictures.length - 1))] : ''} 
-            alt={location.title}
-          />
+          Math.floor(Math.random() * (location.pictures.length - 1))] : ''}
+          alt={location.title}
+          style={{ "width": "250px" }}
+        />
       </div>
       <div className="card__info">
         <h1>{location.title}</h1>
@@ -32,7 +32,6 @@ const LocationCard = ({ location, setLocations, flag = false }) => {
         </div>
       </div>
 
-      {/* TODO: Falta gestionar que aparezcan los botones según isAdmin */}
       {/* TODO: Hacer que salga alguna modal o algo de confirmación de eliminación de location */}
       {!flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
       {flag && <Link to={`/admin/edit/${location._id}`}>Editar Location</Link>}
