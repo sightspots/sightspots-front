@@ -3,7 +3,7 @@ import LocationCard from '../components/locations/LocationCard';
 import { getLocations } from "../api/locationsGet";
 import { Link } from 'react-router-dom';
 
-function AdminPanel({ isAuth, isAdmin, user }) {
+function AdminPanel({ isAdmin, user }) {
     const { name } = user || {};
 
     const [locations, setLocations] = useState([]);
@@ -26,18 +26,22 @@ function AdminPanel({ isAuth, isAdmin, user }) {
 
     return (
         <div>
-            {isAuth && isAdmin === true ?
+            {isAdmin ?
                 <div>
                     <h1>Panel de administración</h1>
                     <p>Hola, {name}.</p>
                     <div>
                         <Link to='/admin/create'>
-                            Crear Location
+                            Crear localización
                         </Link>
                     </div>
                     <br />
                     <br />
-                    <div>{locations.map((location) => <LocationCard key={location._id} location={location} flag={true} />)}</div>
+                    <div>{locations.map((location) => <LocationCard 
+                    key={location._id} 
+                    location={location} 
+                    setLocations={setLocations}
+                    flag={true} />)}</div>
                 </div>
                 : <h1>Acceso denegado</h1>
             }

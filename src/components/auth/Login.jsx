@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { loginPost } from '../../api/loginPost';
 
-function Login({ isAuth, login, checkAdmin, location }) {
+function Login({ isAuth, setUser, setAdmin, location }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleClick = () => {
+    const handleClick = async () => {
         try {
-            login({ email, password });
-            checkAdmin({ email, password });
+            const user = await loginPost({ email, password });
+            setUser(user);
+
+            if (user.role === 'admin') {
+                setAdmin(true);
+            } else {
+                setAdmin(false);
+            }
+
         } catch (error) {
             alert('No has podido loguearte.');
             setEmail('');

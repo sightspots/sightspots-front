@@ -4,7 +4,6 @@ import { getLocations } from "../api/locationsGet";
 
 
 function LocationPage() {
-
     const [locations, setLocations] = useState([]);
 
     useEffect(() => {
@@ -26,7 +25,7 @@ function LocationPage() {
     return (
       <div>
         {locations.map((location) => (
-          <LocationCard location={location} key={location._id} flag={true} />
+          <LocationCard location={location} key={location._id} flag={false} />
         ))}
       </div>
     );

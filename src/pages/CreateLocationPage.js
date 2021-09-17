@@ -2,40 +2,33 @@ import React, { useState, useEffect } from 'react'
 import CreateLocationForm from '../components/forms/CreateLocationForm'
 import { locationCreatePost } from '../api/locationCreatePost'
 
-function AdminCreateLocation() {
-
+function CreateLocationPage({ isAdmin }) {
     const [datos, setDatos] = useState({});
 
     useEffect(() => {
-
         if (!datos.props) {
             return
         }
 
-        console.log('Peticion post')
-        locationCreatePost(datos);
-
-        return () => {
-            console.log('Desmontando')
-        }
+        locationCreatePost(datos);        
     }, [datos])
 
     const addLocation = (props) => {
-
         const newDatas = { ...datos, props };
         setDatos(newDatas);
-
     }
-
 
     return (
         <div>
-            <br />
-            <br />
-            <h1>En la pagina de CREAR LOCATION</h1>
-            <CreateLocationForm addLocation={addLocation} />
+            {isAdmin ?
+                <div>
+                    <h1>Crear nueva localización</h1>
+                    <CreateLocationForm addLocation={addLocation} />
+                </div>
+                : <h1>Acceso denegado</h1>
+            }
         </div>
     )
 }
 
-export default AdminCreateLocation
+export default CreateLocationPage

@@ -1,16 +1,16 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export const oneGetLocation = async (id) => {
+export const getUsers = async () => {
     const baseURL = 'http://localhost:4000';
 
     try {
         const response = await axios({
-            url: `${baseURL}/locations/${id}`,
+            url: `${baseURL}/user/users`,
             method: 'GET',
         });
 
-        const location = response.data;
-        return location
+        const users = response.data;
+        return users
 
     } catch (error) {
         console.log(error)

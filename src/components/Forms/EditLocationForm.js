@@ -24,7 +24,6 @@ function CreateLocationForm(props) {
     })
 
     const submited = (e) => {
-
         e.preventDefault();
 
         const { title, type, description, pictures, latLng, } = datos;
@@ -48,6 +47,8 @@ function CreateLocationForm(props) {
 
     };
 
+    // TODO: Hay que hacer que el formulario recoja los valores de la location y que permita editar los campos.
+    // TODO: Al editar location, hay que redirigir a la location creada.
 
     return (
         <div>

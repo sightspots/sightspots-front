@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { oneGetLocation } from "../api/oneLocationGet";
-import { LocationCard } from '../components/locations.index';
+import { LocationView } from '../components/locations.index';
 
 function OneLocationPage(props) {
 
@@ -9,7 +9,7 @@ function OneLocationPage(props) {
     const [location, setLocation] = useState([]);
 
     useEffect(() => {
-        oneGetLocationApi(id);
+        oneGetLocationApi(id); // eslint-disable-next-line
     }, []);
 
     
@@ -24,7 +24,8 @@ function OneLocationPage(props) {
     
     return (
         <div>
-            <LocationCard location={location} flag={false} />
+            {/* <LocationCard location={location} flag={false}  /> */}
+            <LocationView location={location} />
         </div>
     )
 }
