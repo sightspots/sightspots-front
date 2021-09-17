@@ -5,7 +5,7 @@ import LocationDescription from './LocationDescription';
 import LocationHeader from './LocationHeader';
 import LocationIcon from './LocationIcon';
 import Button from '../ui/Button';
-
+import { LocationSpotify } from '../locations.index';
 
 function LocationView({ location }) {
 
@@ -41,18 +41,18 @@ function LocationView({ location }) {
                     />
 
                     : ''}
-
-
             </div>
             <LocationHeader />
             <LocationInfo location={location} />
             <LocationIcon location={location} />
             <LocationDescription location={location} />
+            {location.audio !== undefined ?
+                <LocationSpotify trackId={location.audio}></LocationSpotify>
+                : null
+            }
             <Button name={'Guardar'} />
         </div>
     )
 }
-
-// profile={profile}
 
 export default LocationView

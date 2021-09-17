@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loginPost } from '../../api/loginPost';
 
 function Login({ isAuth, setUser, setAdmin, location }) {
@@ -29,20 +29,25 @@ function Login({ isAuth, setUser, setAdmin, location }) {
 
     return (
         <div>
-            <h1>Login</h1>
-            <input
-                value={email}
-                onChange={({ target: { value } }) => setEmail(value)}
-                type='text'
-                placeholder='E-mail'
-            />
-            <input
-                value={password}
-                onChange={({ target: { value } }) => setPassword(value)}
-                type='password'
-                placeholder='Contraseña'
-            />
+            <h1>Entra en tu cuenta de SightSpots</h1>
+            <label><p>Introduce tu e-mail</p>
+                <input
+                    value={email}
+                    onChange={({ target: { value } }) => setEmail(value)}
+                    type='text'
+                    placeholder='E-mail'
+                />
+            </label>
+            <label><p>Introduce tu contraseña</p>
+                <input
+                    value={password}
+                    onChange={({ target: { value } }) => setPassword(value)}
+                    type='password'
+                    placeholder='Contraseña'
+                />
+            </label>
             <button onClick={handleClick}>Login</button>
+            <div><p>Si no tienes cuenta en SightSpots, puedes <Link to='/register'>registrarte</Link>.</p></div>
         </div>
     );
 }

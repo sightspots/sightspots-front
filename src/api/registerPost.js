@@ -1,17 +1,13 @@
 import axios from 'axios';
 
-export const loginPost = async (loginValues) => {
-    const { email, password } = loginValues;
+export const registerPost = async (registerValues) => {
     const baseURL = 'http://localhost:4000';
 
     try {
         const response = await axios({
-            url: `${baseURL}/auth/login`,
+            url: `${baseURL}/auth/register`,
             method: 'POST',
-            data: {
-                email,
-                password,
-            }
+            data: registerValues,
         });
 
         const user = response.data;
