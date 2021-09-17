@@ -13,7 +13,7 @@ function Navbar({ isAuth, isAdmin, logout }) {
             </Link>
             {isAuth && isAdmin ?
                 <Link to='/admin' className='navbar__link'>
-                    <div>Panel de admin</div>
+                    <div>Admin</div>
                 </Link>
                 : null
             }

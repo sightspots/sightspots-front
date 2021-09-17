@@ -5,12 +5,18 @@ import LocationDescription from './LocationDescription';
 import LocationHeader from './LocationHeader';
 import LocationIcon from './LocationIcon';
 import Button from '../ui/Button';
-
+import { LocationSpotify } from '../locations.index';
+import Overlays from '../../components/maps/Overlays';
+import splitCoor from '../../utils/split';
 
 function LocationView({ location }) {
 
     const pictures = location.pictures;
     const images = [];
+    let coor = [];
+
+    if (location.latLng) coor = splitCoor(location.latLng).reverse();
+    
 
     if (pictures !== undefined) {
         pictures.map(image => {
@@ -22,7 +28,7 @@ function LocationView({ location }) {
     }
 
     let width = document.documentElement.clientWidth || document.body.clientWidth
-    let height = (window.screen.height)
+    let height = (window.screen.height/1.2)
 
     location.title !== undefined ? window.localStorage.setItem(location.title, 0) : console.log('Esperando...')
 
@@ -43,18 +49,19 @@ function LocationView({ location }) {
                     />
 
                     : ''}
-
-
             </div>
             <LocationHeader />
             <LocationInfo location={location} />
             <LocationIcon location={location} />
             <LocationDescription location={location} />
+            {location.audio !== undefined ?
+                <LocationSpotify trackId={location.audio}></LocationSpotify>
+                : null
+            }
+            {coor.length > 0 ? <Overlays title={location.title} coor={coor} /> : ""}
             <Button name={'Guardar'} />
         </div>
     )
 }
-
-// profile={profile}
 
 export default LocationView

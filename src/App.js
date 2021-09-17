@@ -3,6 +3,8 @@ import { Navbar, Register, Login, UserPage, AdminPanel, NotFound, AuthRoute } fr
 import { LocationsPage, OneLocationPage, CreateLocationPage, EditLocationPage } from './components/locations.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
+// maps
+
 function App() {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(null);
@@ -18,16 +20,21 @@ function App() {
           <Route exact path="/" component={LocationsPage} />
           <Route exact path="/locations" component={LocationsPage} />
           <Route exact path="/locations/:id" component={OneLocationPage} />
-          <Route path="/register" component={Register} />
           <Route
-            path="/login"
+            exact path="/login"
             render={props => (
               <Login isAuth={isAuth} setUser={setUser} setAdmin={setAdmin} {...props} />
             )}
           />
+          <Route
+            exact path="/register"
+            render={props => (
+              <Register isAuth={isAuth} setUser={setUser} {...props} />
+            )}
+          />
           <AuthRoute
             isAuth={isAuth}
-            path="/user"
+            exact path="/user"
             render={props => <UserPage user={user} {...props} />}
           />
           <Route

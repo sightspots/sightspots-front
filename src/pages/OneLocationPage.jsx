@@ -30,6 +30,3 @@ function OneLocationPage(props) {
 }
 
 export default OneLocationPage
-
-
-// <LocationCard location={location} flag={false}  />
