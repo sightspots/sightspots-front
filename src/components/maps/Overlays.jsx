@@ -8,21 +8,21 @@ import locationIcon from "./assets/pin.svg";
 
 
 export default function Overlays(props){
-    console.log(props.coor);
+    console.log("coor",props.coor);
   return (
     <RMap
       width={"100%"}
       height={"60vh"}
       className="example-map"
-      initial={{ center: fromLonLat(props.coor), zoom: 11 }}
+      initial={{ center: fromLonLat(props.coor), zoom: 14 }}
     >
       <ROSM />
       <RLayerVector zIndex={10}>
         <RStyle.RStyle>
-          <RStyle.RIcon src={locationIcon} anchor={[0.5, 0.8]} />
+          <RStyle.RIcon scale={0.1} src={locationIcon} anchor={[0.5, 0.8]} />
         </RStyle.RStyle>
         <RFeature
-          geometry={new Point(fromLonLat([-3.590087, 37.176089]))}
+          geometry={new Point(fromLonLat(props.coor))}
           onClick={(e) =>
             e.map.getView().fit(e.target.getGeometry().getExtent(), {
               duration: 250,
@@ -30,7 +30,7 @@ export default function Overlays(props){
             })
           }
         >
-          <ROverlay className="example-overlay">Alhambra</ROverlay>
+          <ROverlay className="example-overlay">{props.title}</ROverlay>
         </RFeature>
       </RLayerVector>
     </RMap>

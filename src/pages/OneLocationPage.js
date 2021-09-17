@@ -10,6 +10,7 @@ function OneLocationPage(props) {
 
     const [location, setLocation] = useState([]);
     const[coor, setCoor] = useState([]);
+    const [title, setTitle] = useState("");
 
     useEffect(() => {
         oneGetLocationApi(id); // eslint-disable-next-line
@@ -21,16 +22,18 @@ function OneLocationPage(props) {
             const data = await oneGetLocation(id);
             setLocation(data);
             setCoor(splitCoor(data.latLng).reverse());
+            setTitle(data.title)
         } catch (error) {
             console.log(error)
         }
     }
     
+    console.log("page",coor);
     return (
         <div>
             {/* <LocationCard location={location} flag={false}  /> */}
             <LocationView location={location} />
-            <Overlays coor={coor}/>
+            {coor.length > 0 ? <Overlays title={title} coor={coor}/>: ""}
         </div>
     )
 }
