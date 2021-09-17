@@ -1,6 +1,6 @@
 import React from 'react'
 import { imagesRandom } from '../../utils/functions'
-import { Spotify } from '../locations.index';
+import { LocationSpotify } from '../locations.index';
 
 function LocationView({ location }) {
 
@@ -14,7 +14,7 @@ function LocationView({ location }) {
                 <div className="Location__avatar"></div>
             </div>
             {location.audio !== undefined ?
-                <Spotify trackId={location.audio}></Spotify>
+                <LocationSpotify trackId={location.audio}></LocationSpotify>
                 : null
             }
         </div>

@@ -11,7 +11,7 @@ function CreateLocationForm(props) {
         pictures: '',
         latLng: '',
         audio: '',
-    })
+    });
 
     const history = useHistory();
 
@@ -20,19 +20,19 @@ function CreateLocationForm(props) {
 
         const { title, type, description, visitingHours, pictures, latLng, audio } = datos;
 
-        if (!title || !type || !description || !latLng ) {
+        if (!title || !type || !description || !latLng) {
             console.log('Los campos obligatorios son: título, tipo, descripción y ubicación.');
             return
         }
 
-        let formData = new FormData();
+        const formData = new FormData();
         formData.append('title', title);
         formData.append('type', type);
         formData.append('description', description);
         formData.append('visitingHours', visitingHours);
         formData.append('latLng', latLng);
         formData.append('audio', audio);
-                for (const key of Object.keys(pictures)) {
+        for (const key of Object.keys(pictures)) {
             formData.append('pictures', pictures[key]);
         }
 
@@ -65,7 +65,7 @@ function CreateLocationForm(props) {
             type: event.target.value,
         })
     };
-    
+
     return (
         <div>
             <form encType="multipart/form-data" className="formulario" onSubmit={submitted}>
