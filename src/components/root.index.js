@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+import Navbar from './core/Navbar';
 import Register from './auth/Register';
 import Login from './auth/Login';
 import Logout from './auth/Logout';

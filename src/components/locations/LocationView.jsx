@@ -4,6 +4,7 @@ import LocationInfo from './LocationInfo';
 import LocationDescription from './LocationDescription';
 import LocationHeader from './LocationHeader';
 import LocationIcon from './LocationIcon';
+import Button from '../ui/Button';
 
 
 function LocationView({ location }) {
@@ -20,7 +21,7 @@ function LocationView({ location }) {
         console.log('Esperando...')
     }
 
-    let width = window.screen.width
+    let width = document.documentElement.clientWidth || document.body.clientWidth
     let height = (window.screen.height)
 
     console.log(location)
@@ -31,7 +32,7 @@ function LocationView({ location }) {
                 {pictures !== undefined ?
 
                     <SimpleImageSlider
-
+                        style={{overflow: 'hidden'}}
                         width={width}
                         height={height}
                         images={images}
@@ -47,6 +48,7 @@ function LocationView({ location }) {
             <LocationInfo location={location} />
             <LocationIcon location={location} />
             <LocationDescription location={location} />
+            <Button name={'Guardar'} />
         </div>
     )
 }

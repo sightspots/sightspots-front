@@ -186,7 +186,7 @@ html, body, input, select, textarea, button {
 .show {
   width: 90%;
   height: auto;
-  max-height: 999px;
+  max-height: 2000px;
   margin: 40px auto;
   color: var(--blue-dark);
   border-radius: 10px;
