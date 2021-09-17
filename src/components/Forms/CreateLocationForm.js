@@ -6,9 +6,11 @@ function CreateLocationForm(props) {
     const [datos, setDatos] = useState({
         title: '',
         type: '',
-        pictures: '',
         description: '',
-        latLng: ''
+        visitingHours: '',
+        pictures: '',
+        latLng: '',
+        audio: '',
     })
 
     const history = useHistory();
@@ -16,19 +18,21 @@ function CreateLocationForm(props) {
     const submitted = async (e) => {
         e.preventDefault();
 
-        const { title, type, description, pictures, latLng } = datos;
+        const { title, type, description, visitingHours, pictures, latLng, audio } = datos;
 
-        if (!title || !type || !description || !latLng || !pictures) {
-            console.log('Rellena todos los campos');
+        if (!title || !type || !description || !latLng ) {
+            console.log('Los campos obligatorios son: título, tipo, descripción y ubicación.');
             return
         }
 
         let formData = new FormData();
         formData.append('title', title);
-        formData.append('description', description);
         formData.append('type', type);
+        formData.append('description', description);
+        formData.append('visitingHours', visitingHours);
         formData.append('latLng', latLng);
-        for (const key of Object.keys(pictures)) {
+        formData.append('audio', audio);
+                for (const key of Object.keys(pictures)) {
             formData.append('pictures', pictures[key]);
         }
 
@@ -85,8 +89,14 @@ function CreateLocationForm(props) {
                 <label>Descripción</label>
                 <textarea name="description" onChange={handleInput} />
                 <br />
+                <label>Horarios de visita</label>
+                <input type="text" name="visitingHours" onChange={handleInput} />
+                <br />
                 <label>Ubicación</label>
                 <input type="text" name="latLng" onChange={handleInput} />
+                <br />
+                <label>Audio</label>
+                <input type="text" name="audio" onChange={handleInput} />
                 <br />
                 <button>Enviar</button>
             </form >
