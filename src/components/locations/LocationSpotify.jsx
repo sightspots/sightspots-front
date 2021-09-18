@@ -9,7 +9,7 @@ const Spotify = ({trackId}) => {
       title='Spotify'
       src={url + id + '?theme=0'}
       width='100%'
-      height='100%'
+      height='80px'
       frameBorder='0'
       allowtransparency='true'
       allow='encrypted-media'

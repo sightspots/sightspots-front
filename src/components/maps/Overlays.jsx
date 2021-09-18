@@ -14,7 +14,7 @@ export default function Overlays(props){
   return (
     <RMap
       width={"100%"}
-      height={"60vh"}
+      height={"40vh"}
       className="example-map"
       initial={{ center: fromLonLat(props.coor), zoom: 14 }}
     >
@@ -33,7 +33,7 @@ export default function Overlays(props){
           }
         >
           <ROverlay className="example-overlay">
-            <FontAwesomeIcon icon={faMapMarkerAlt} style={{ fontSize: '50px' }}/>
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="map__icon" />
           </ROverlay>
         </RFeature>
       </RLayerVector>

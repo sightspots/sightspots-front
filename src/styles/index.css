@@ -48,7 +48,7 @@ a:active, a:visited {
   text-align: center;
   -webkit-box-shadow: 0 0 10px 2px var(--light-soft);
           box-shadow: 0 0 10px 2px var(--light-soft);
-  font-size: inherit;
+  font-size: 16px;
 }
 
 .b-button:hover {
@@ -349,6 +349,7 @@ input[placeholder] {
 .Location__card--view {
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 50px;
   color: var(--primary);
   font-size: 25px;
   display: -webkit-box;
@@ -359,6 +360,8 @@ input[placeholder] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .Location__title {
@@ -499,7 +502,7 @@ input[placeholder] {
 
 .admin-panel {
   padding: 20px;
-  color: var(-primary);
+  color: var(--primary);
   position: relative;
 }
 
@@ -552,6 +555,15 @@ input[placeholder] {
 
 .ol-attribution {
   font-size: 12px;
+}
+
+.ol-zoom {
+  font-size: 16px;
+}
+
+.map__icon {
+  font-size: 50px;
+  color: var(--primary);
 }
 
 .d-none {
