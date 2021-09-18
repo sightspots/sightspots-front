@@ -28,26 +28,32 @@ function Login({ isAuth, setUser, setAdmin, location }) {
     if (isAuth) return <Redirect to={from} />;
 
     return (
-        <div>
-            <h1>Entra en tu cuenta de SightSpots</h1>
-            <label><p>Introduce tu e-mail</p>
-                <input
-                    value={email}
-                    onChange={({ target: { value } }) => setEmail(value)}
-                    type='text'
-                    placeholder='E-mail'
-                />
-            </label>
-            <label><p>Introduce tu contraseña</p>
-                <input
-                    value={password}
-                    onChange={({ target: { value } }) => setPassword(value)}
-                    type='password'
-                    placeholder='Contraseña'
-                />
-            </label>
-            <button onClick={handleClick}>Login</button>
-            <div><p>Si no tienes cuenta en SightSpots, puedes <Link to='/register'>registrarte</Link>.</p></div>
+        <div className="Formulario">
+            <div className="Formulario__header">
+                <h1 className="Formulario__title">Entra en tu cuenta de SightSpots</h1>
+                <Link  to='/register'><p className="Formulario__link"> O registrate en SightSpots gratis</p></Link>
+            </div>
+            <div className="Formulario__container">
+                <div className="Formulario__inputBox">
+                    <input
+                        value={email}
+                        onChange={({ target: { value } }) => setEmail(value)}
+                        type='text'
+                        placeholder='E-mail'
+                        className="Formulario__input"
+                    />
+                </div>
+                <div className="Formulario__inputBox">
+                    <input
+                        value={password}
+                        onChange={({ target: { value } }) => setPassword(value)}
+                        type='password'
+                        placeholder='Contraseña'
+                        className="Formulario__input"
+                    />
+                </div>
+                <button className="Formulario__button" onClick={handleClick}>Login</button>
+            </div>
         </div>
     );
 }

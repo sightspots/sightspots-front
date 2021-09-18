@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router';
 
-function CreateLocationForm(props) {
+function EditLocationForm(props) {
 
-  
 
     const { locationToEdit } = props
-
+    const history = useHistory();
     const value = {};
+
+    console.log('El que me interesa', locationToEdit)
 
     locationToEdit.forEach(element => {
         value.title = element.title
-        value.tag = element.tag
+        value.audio = element.audio
+        value.visitingHours = element.visitingHours
+        value.type = element.type
+        value.latLng = element.latLng
         value.description = element.description
     });
 
@@ -18,62 +23,133 @@ function CreateLocationForm(props) {
         id: '',
         title: '',
         type: '',
-        pictures: '',
+        pictures: [],
         description: '',
         latLng: ''
     })
 
     const submited = (e) => {
-        e.preventDefault();
 
-        const { title, type, description, pictures, latLng, } = datos;
+        const { title, type, description, latLng, pictures } = datos
 
-        if (!title && !type && !description && !latLng && !pictures) {
-            console.log('Rellena todos los campos');
-            return
+        let formData = new FormData();
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('type', type);
+        formData.append('latLng', latLng);
+        for (const key of Object.keys(pictures)) {
+            formData.append('pictures', pictures[key]);
         }
 
-        console.log('En el formulario', datos)
-        props.editLocation(datos);
+        props.editLocation(formData);
         setDatos({})
+
+        return setTimeout(() => {
+            history.goBack();
+        }, 1400);
+
     }
 
     const handleInput = (event) => {
         setDatos({
             ...datos,
             [event.target.name]: event.target.value,
-            id: props.id
+            id: props._id
         })
 
     };
 
-    // TODO: Hay que hacer que el formulario recoja los valores de la location y que permita editar los campos.
-    // TODO: Al editar location, hay que redirigir a la location creada.
+    const handleFile = (event) => {
+        setDatos({
+            ...datos,
+            pictures: [...datos.pictures, ...event.target.files],
+        })
+    };
+
+    const handleSelect = (event) => {
+        setDatos({
+            ...datos,
+            type: event.target.value,
+        })
+    };
+
+    // TODO: Hay que hacer que funcione
 
     return (
         <div>
-        <br/>
-        <br/>
-            <form encType="multipart/form-data" className="formulario" onSubmit={submited}>
-                <label>Titulo</label>
-                <input type="text" name="title" value={value.title} onChange={handleInput} />
-                <br />
-                <label>Tag</label>
-                <input type="text" name="type" onChange={handleInput} />
-                <br />
-                <label>pictures</label>
-                <input type="file" multiple name="pictures" onChange={handleInput} />
-                <br />
-                <label>Descripcion</label>
-                <input type="text" name="description" value={value.description} onChange={handleInput} />
-                <br />
-                <label>Unicacion</label>
-                <input type="text" name="latLng" onChange={handleInput} />
-                <br />
-                <button >Enviar</button>
+            <form encType="multipart/form-data" className="Formulario__container" onSubmit={submited}>
+
+                <div className="Formulario__inputBox">
+                    <input
+                        className="Formulario__input"
+                        type="text"
+                        name="title"
+                        value={datos.title === '' ? value.title : datos.title}
+                        onChange={handleInput} />
+                </div>
+
+                <div className="Formulario__inputBox">
+                    <select className="Formulario__input" name="type" onChange={handleSelect}>
+                        <option value="naturaleza">Naturaleza</option>
+                        <option selected value="construcción civil">Construcción civil</option>
+                        <option value="construcción religiosa">Construcción religiosa</option>
+                        <option value="galería de arte">Galería de arte</option>
+                        <option value="jardín botánico">Jardín botánico</option>
+                        <option value="zoológico">Zoológico</option>
+                        <option value="monumento">Monumento</option>
+                    </select>
+                </div>
+                <div className="Formulario__inputBox">
+                    <input
+                        multiple
+                        className="Formulario__input"
+                        type="file"
+                        name="pictures"
+                        onChange={handleFile} />
+                </div>
+                <div className="Formulario__inputBox">
+                    <input
+                        className="Formulario__input"
+                        placeholder="Horario"
+                        type="text"
+                        name="visitingHours"
+                        value={datos.visitingHours === '' ? value.visitingHours : datos.visitingHours}
+                        onChange={handleInput}
+                    />
+                </div>
+                <div className="Formulario__inputBox">
+                    <input
+                        className="Formulario__input"
+                        placeholder="Ubicación"
+                        type="text"
+                        name="latLng"
+                        value={datos.latLng === '' ? value.latLng : datos.latLng}
+                        onChange={handleInput}
+                    />
+                </div>
+                <div className="Formulario__inputBox">
+                    <input
+                        className="Formulario__input"
+                        placeholder="Audio"
+                        type="text"
+                        name="audio"
+                        value={datos.audio === '' ? value.audio : datos.audio}
+                        onChange={handleInput}
+                    />
+                </div>
+                <div className="Formulario__textareaBox">
+                    <textarea 
+                        className="Formulario__special"
+                        type="text"
+                        name="description"
+                        value={datos.description === '' ? value.description : datos.description}
+                        onChange={handleInput}
+                    />
+                </div>
+                <button className="Formulario__button">Enviar</button>
             </form>
         </div>
     )
 }
 
-export default CreateLocationForm
+export default EditLocationForm

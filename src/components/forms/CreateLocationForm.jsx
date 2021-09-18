@@ -68,37 +68,39 @@ function CreateLocationForm(props) {
 
     return (
         <div>
-            <form encType="multipart/form-data" className="formulario" onSubmit={submitted}>
-                <label>Título</label>
-                <input type="text" name="title" onChange={handleInput} />
-                <br />
-                <label>Tipo</label>
-                <select name="type" onChange={handleSelect}>
-                    <option value="naturaleza">Naturaleza</option>
-                    <option selected value="construcción civil">Construcción civil</option>
-                    <option value="construcción religiosa">Construcción religiosa</option>
-                    <option value="galería de arte">Galería de arte</option>
-                    <option value="jardín botánico">Jardín botánico</option>
-                    <option value="zoológico">Zoológico</option>
-                    <option value="monumento">Monumento</option>
-                </select>
-                <br />
-                <label>Imágenes</label>
-                <input type="file" name="pictures" multiple onChange={handleFile} />
-                <br />
-                <label>Descripción</label>
-                <textarea name="description" onChange={handleInput} />
-                <br />
-                <label>Horarios de visita</label>
-                <input type="text" name="visitingHours" onChange={handleInput} />
-                <br />
-                <label>Ubicación</label>
-                <input type="text" name="latLng" onChange={handleInput} />
-                <br />
-                <label>Audio</label>
-                <input type="text" name="audio" onChange={handleInput} />
-                <br />
-                <button>Enviar</button>
+            <form encType="multipart/form-data" className="Formulario__container" onSubmit={submitted}>
+                
+                <div className="Formulario__inputBox">
+                    <input className="Formulario__input" type="text" name="title" placeholder="Título" onChange={handleInput} />
+                </div>
+                <div className="Formulario__inputBox">
+                    <select className="Formulario__input" name="type" onChange={handleSelect}>
+                        <option value="naturaleza">Naturaleza</option>
+                        <option selected value="construcción civil">Construcción civil</option>
+                        <option value="construcción religiosa">Construcción religiosa</option>
+                        <option value="galería de arte">Galería de arte</option>
+                        <option value="jardín botánico">Jardín botánico</option>
+                        <option value="zoológico">Zoológico</option>
+                        <option value="monumento">Monumento</option>
+                    </select>
+                </div>
+                <div className="Formulario__inputBox">
+                    <input className="Formulario__input" type="file" name="pictures" multiple onChange={handleFile} />
+                </div>
+                <div className="Formulario__inputBox">
+                    <input className="Formulario__input" placeholder="Horario" type="text" name="visitingHours" onChange={handleInput} />
+                </div>
+                <div className="Formulario__inputBox">
+                    <input className="Formulario__input" placeholder="Ubicación" type="text" name="latLng" onChange={handleInput} />
+                </div>
+                <div className="Formulario__inputBox">
+                    <input className="Formulario__input" placeholder="Audio" type="text" name="audio" onChange={handleInput} />
+                </div>
+                <div className="Formulario__textareaBox">
+                    <textarea className="Formulario__textarea" placeholder="Descripción" name="description" onChange={handleInput} />
+                </div>
+                <button className="Formulario__button">Enviar</button>
+
             </form >
         </div >
     )

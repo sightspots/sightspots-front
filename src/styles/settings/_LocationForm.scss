@@ -1,0 +1,16 @@
+.LocationForm {
+    width: 100%;
+    min-height: 65vh;
+    padding-top: 30px;
+
+    &__header {
+        width: 80%;
+        margin: 40px auto;
+    }
+
+    &__title {
+        color: var(--mid);
+        font-size: 20px;
+        line-height: 1.3;
+    }
+}

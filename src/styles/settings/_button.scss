@@ -8,14 +8,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--blue-hard);
+    color: var(--white);
+    background-color: var(--mid);
     text-align: center;
-    box-shadow: 0 0 10px 0 var(--gray-hard);
+    box-shadow: 0 0 10px 2px var(--light-soft);
+
     font-size: 14px;
 
     &:hover {
-        background-color: var(--sky-hard);
-        color: var(--white-hard);
+        background-color: var(--primary);
+        color: var(--white);
 
         cursor: pointer;
     }
