@@ -35,7 +35,7 @@ function LocationView({ location }) {
     return (
         <div className="Location">
             <div className="Location__slider">
-                {pictures !== undefined ?
+                {pictures !== undefined && pictures.length > 0 ?
 
                     <SimpleImageSlider
                         style={{overflow: 'hidden'}}

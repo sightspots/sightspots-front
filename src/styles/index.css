@@ -10,12 +10,21 @@
   scroll-behavior: smooth;
 }
 
-html, body, input, select, textarea, button {
+html,
+body,
+input,
+select,
+textarea,
+button {
   border: none;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   font-family: "Poppins", sans-serif;
+}
+
+a:active, a:visited {
+  color: inherit;
 }
 
 :root {
@@ -235,6 +244,87 @@ html, body, input, select, textarea, button {
 
 .navbar__link:hover {
   background-color: white;
+}
+
+.profile-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-header__greeting {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.profile-header__avatar {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.admin-panel {
+  padding: 20px;
+  background-color: var(--grey);
+  color: var(-primary);
+  position: relative;
+}
+
+.admin-panel__add-icon {
+  position: fixed;
+  bottom: 25px;
+  font-size: 50px;
+  border-radius: 50%;
+  background-color: var(--grey);
+  color: var(--mid);
+}
+
+.admin-panel__location-block {
+  border-radius: 10px;
+  border: 1px solid var(--light);
+  padding: 5px 10px;
+}
+
+.admin-panel__location {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.admin-panel__location--name {
+  font-weight: normal;
+}
+
+.admin-panel__location--icons {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.admin-panel__location--icons * {
+  color: var(--mid);
 }
 
 .d-none {

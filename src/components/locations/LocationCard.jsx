@@ -1,15 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { locationDelete } from '../../api/locationDelete';
-import { getLocations } from "../../api/locationsGet";
 
-const LocationCard = ({ location, setLocations, flag = false }) => {
-
-  const handleClick = async () => {
-    await locationDelete(location._id);
-    const locations = await getLocations();
-    setLocations(locations);
-  }
+const LocationCard = ({ location }) => {
 
   return (
     <div className="card" style={{ border: "1px solid" }}>
@@ -30,9 +22,7 @@ const LocationCard = ({ location, setLocations, flag = false }) => {
         </div>
       </div>
 
-      {!flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
-      {flag && <Link to={`/admin/edit/${location._id}`}>Editar Location</Link>}
-      {flag && <button onClick={handleClick}>Borrar Location</button>}
+      <Link to={`/locations/${location._id}`}>Ver Location</Link>
     </div>
   );
 };
