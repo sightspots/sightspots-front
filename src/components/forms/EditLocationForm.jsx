@@ -8,8 +8,6 @@ function EditLocationForm(props) {
     const history = useHistory();
     const value = {};
 
-    console.log('El que me interesa', locationToEdit)
-
     locationToEdit.forEach(element => {
         value.title = element.title
         value.audio = element.audio
@@ -29,6 +27,7 @@ function EditLocationForm(props) {
     })
 
     const submited = (e) => {
+        e.preventDefault();
 
         const { title, type, description, latLng, pictures } = datos
 

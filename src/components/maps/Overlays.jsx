@@ -21,7 +21,7 @@ export default function Overlays(props){
       <ROSM />
       <RLayerVector zIndex={10}>
         <RStyle.RStyle>
-          <RStyle.RIcon scale={0} src={locationIcon} anchor={[0.5, 0.8]} />
+          <RStyle.RIcon scale={1} src={locationIcon} anchor={[0.5, 0.8]} />
         </RStyle.RStyle>
         <RFeature
           geometry={new Point(fromLonLat(props.coor))}
@@ -33,7 +33,7 @@ export default function Overlays(props){
           }
         >
           <ROverlay className="example-overlay">
-            <FontAwesomeIcon icon={faMapMarkerAlt}/>
+            <FontAwesomeIcon icon={faMapMarkerAlt} style={{ fontSize: '50px' }}/>
           </ROverlay>
         </RFeature>
       </RLayerVector>

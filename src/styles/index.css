@@ -29,6 +29,7 @@ a:active, a:visited {
 
 /* /////////////////////////    BOTON   //////////////////////////////  */
 .b-button {
+  margin-top: 10px;
   width: 100%;
   height: 40px;
   border: none;
@@ -47,7 +48,7 @@ a:active, a:visited {
   text-align: center;
   -webkit-box-shadow: 0 0 10px 2px var(--light-soft);
           box-shadow: 0 0 10px 2px var(--light-soft);
-  font-size: 14px;
+  font-size: inherit;
 }
 
 .b-button:hover {
@@ -179,28 +180,14 @@ a:active, a:visited {
           box-shadow: 0 0 20px 3px var(--light-soft);
 }
 
-.Formulario__button {
-  border: none;
-  width: 100%;
-  margin-top: 8px;
-  height: 40px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  background-color: var(--mid);
-  -webkit-box-shadow: 0 0 20px 3px var(--grey);
-          box-shadow: 0 0 20px 3px var(--grey);
-  color: white;
-}
-
-.Formulario__button:hover {
-  background-color: white;
-  color: var(--primary);
-}
-
 input:focus, select:focus, textarea:focus {
   outline: none;
   border: 1px solid var(--mid);
   border-radius: 8px;
+}
+
+input[placeholder] {
+  font-size: inherit;
 }
 
 .LocationForm {
@@ -221,65 +208,40 @@ input:focus, select:focus, textarea:focus {
 }
 
 .card {
-  background-color: var(--grey-medium);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
+  padding: 15px;
   margin: 10px;
+  color: var(--mid);
+  background-color: var(--white);
+  -webkit-box-shadow: 0 0 10px 2px var(--light-soft);
+          box-shadow: 0 0 10px 2px var(--light-soft);
   border-radius: 10px;
-  -webkit-box-shadow: 5px 0px 50px -8px #000000;
-          box-shadow: 5px 0px 50px -8px #000000;
+  border: 1px solid var(--light-soft);
 }
 
 .card__picture {
-  margin: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .card__img {
   width: 100%;
-  border-radius: 10px;
-}
-
-.card__info {
-  width: 100%;
-  padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .card__name {
-  color: var(--mid);
-  font-size: 15px;
+  color: var(--primary);
+  font-size: 16px;
   text-align: start;
-}
-
-.card__description {
-  color: var(--primary-medium);
-  margin-top: 5px;
-  font-size: 12px;
-  text-align: justify;
+  font-weight: normal;
 }
 
 .card__button-area {
@@ -312,6 +274,7 @@ input:focus, select:focus, textarea:focus {
           align-items: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  margin-bottom: 50px;
 }
 
 .Location__header {
@@ -367,13 +330,27 @@ input:focus, select:focus, textarea:focus {
   border: 1px solid var(--light-soft);
 }
 
-.Location__card_special {
-  color: var(--mid);
+.Location__card--list {
   width: 90%;
   margin: 0 auto;
-  margin-top: 50px;
-  color: var(--mid);
-  font-size: 20px;
+  color: var(--primary);
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Location__card--view {
+  width: 90%;
+  margin: 0 auto;
+  color: var(--primary);
+  font-size: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -388,17 +365,6 @@ input:focus, select:focus, textarea:focus {
   width: 90%;
   line-height: 1.2;
   margin-bottom: 10px;
-}
-
-.Location__icon {
-  font-size: 24px;
-  color: var(--primary);
-}
-
-.Location__likes {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--primary);
 }
 
 .Location__ubi {
@@ -457,7 +423,7 @@ input:focus, select:focus, textarea:focus {
 
 .hide {
   width: 90%;
-  max-height: 85px;
+  max-height: 113px;
   margin: 40px auto;
   color: var(--primary);
   border-radius: 10px;
@@ -582,6 +548,10 @@ input:focus, select:focus, textarea:focus {
 
 .admin-panel__location--icons * {
   color: var(--mid);
+}
+
+.ol-attribution {
+  font-size: 12px;
 }
 
 .d-none {

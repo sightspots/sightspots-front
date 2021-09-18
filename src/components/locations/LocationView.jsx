@@ -51,7 +51,9 @@ function LocationView({ location }) {
                     : ''}
             </div>
             <LocationHeader />
-            <LocationIcon location={location} />
+            <div className="Location__card--view">
+                <LocationIcon location={location} />
+            </div>
             <LocationInfo location={location} />
             <LocationDescription location={location} />
             {coor.length > 0 ? <div className="Location__card_special"><Overlays title={location.title} coor={coor} /></div> : ""}
