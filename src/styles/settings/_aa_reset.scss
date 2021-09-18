@@ -1,19 +1,33 @@
 /* Reset */
 
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    scroll-behavior: smooth;
-  }
+// TODO: Añadir un background-color general para que se aplique por defecto a todas las vistas.
 
-  html, body, input, select, textarea, button {
-          border: none;
+* {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        scroll-behavior: smooth;
+}
+
+html,
+body,
+input,
+select,
+textarea,
+button {
+        border: none;
         appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         font-family: "Poppins", sans-serif;
-  }
+}
+
+a {
+        &:active,
+        &:visited {
+                color: inherit;
+        }
+}

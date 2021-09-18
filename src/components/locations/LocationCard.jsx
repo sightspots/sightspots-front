@@ -1,16 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { locationDelete } from '../../api/locationDelete';
-import { getLocations } from "../../api/locationsGet";
 import trimmedString from '../../utils/substring';
 
-const LocationCard = ({ location, setLocations, flag = false }) => {
-
-  const handleClick = async () => {
-    await locationDelete(location._id);
-    const locations = await getLocations();
-    setLocations(locations);
-  }
+const LocationCard = ({ location }) => {
 
   return (
     <div className="card">
@@ -20,8 +12,8 @@ const LocationCard = ({ location, setLocations, flag = false }) => {
           src={
             location.pictures !== undefined
               ? location.pictures[
-                  Math.floor(Math.random() * (location.pictures.length - 1))
-                ]
+              Math.floor(Math.random() * (location.pictures.length - 1))
+              ]
               : ""
           }
           alt={location.title}
@@ -35,16 +27,11 @@ const LocationCard = ({ location, setLocations, flag = false }) => {
         </p>
         <div className="card__button-area">
           <span className="card__rating">Likes: {location.rating}</span>
-          {!flag && (
-            <Link className="card__goto" to={`/locations/${location._id}`}>
-              Ver Location
-            </Link>
-          )}
+          <Link className="card__goto" to={`/locations/${location._id}`}>
+            Ver Location
+          </Link>
         </div>
       </div>
-
-      {flag && <Link to={`/admin/edit/${location._id}`}>Editar Location</Link>}
-      {flag && <button onClick={handleClick}>Borrar Location</button>}
     </div>
   );
 };

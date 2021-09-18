@@ -7,7 +7,7 @@ const Spotify = ({trackId}) => {
   return (
     <iframe
       title='Spotify'
-      src={url + id}
+      src={url + id + '?theme=0'}
       width='100%'
       height='100%'
       frameBorder='0'
