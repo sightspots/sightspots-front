@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import trimmedString from '../../utils/substring';
+import { imagesRandom } from "../../utils/functions";
 import LocationIcon from "./LocationIcon";
 
 const LocationCard = ({ location }) => {
@@ -13,11 +13,7 @@ const LocationCard = ({ location }) => {
           <img
             className="card__img"
             src={
-              location.pictures !== undefined
-                ? location.pictures[
-                Math.floor(Math.random() * (location.pictures.length - 1))
-                ]
-                : ""
+              location.pictures !== undefined ? imagesRandom(location.pictures) : ""
             }
             alt={location.title}
           />

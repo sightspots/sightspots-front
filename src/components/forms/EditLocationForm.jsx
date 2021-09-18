@@ -8,6 +8,8 @@ function EditLocationForm(props) {
     const history = useHistory();
     const value = {};
 
+    console.log('LOCATION TO EDIT', locationToEdit);
+
     locationToEdit.forEach(element => {
         value.title = element.title
         value.audio = element.audio
@@ -18,7 +20,6 @@ function EditLocationForm(props) {
     });
 
     const [datos, setDatos] = useState({
-        id: '',
         title: '',
         type: '',
         pictures: [],
@@ -26,15 +27,17 @@ function EditLocationForm(props) {
         latLng: ''
     })
 
-    const submited = (e) => {
+    const submitted = (e) => {
         e.preventDefault();
 
-        const { title, type, description, latLng, pictures } = datos
+        const { title, type, description, visitingHours, audio, latLng, pictures } = datos
 
         let formData = new FormData();
         formData.append('title', title);
         formData.append('description', description);
         formData.append('type', type);
+        formData.append('visitingHours', visitingHours);
+        formData.append('audio', audio);
         formData.append('latLng', latLng);
         for (const key of Object.keys(pictures)) {
             formData.append('pictures', pictures[key]);
@@ -53,7 +56,6 @@ function EditLocationForm(props) {
         setDatos({
             ...datos,
             [event.target.name]: event.target.value,
-            id: props._id
         })
 
     };
@@ -76,7 +78,7 @@ function EditLocationForm(props) {
 
     return (
         <div>
-            <form encType="multipart/form-data" className="Formulario__container" onSubmit={submited}>
+            <form encType="multipart/form-data" className="Formulario__container" onSubmit={submitted}>
 
                 <div className="Formulario__inputBox">
                     <input

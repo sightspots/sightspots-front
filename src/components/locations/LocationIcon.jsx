@@ -54,7 +54,7 @@ function LocationIcon({ location }) {
                 icons.push(faPaintBrush)
             } else if (icon === 'jardín botánico') {
                 icons.push(faSeedling)
-            } else if (icon === 'jardín botánico') {
+            } else if (icon === 'zoológico') {
                 icons.push(faHippo)
             } else if (icon === 'monumento') {
                 icons.push(faMonument)

@@ -23,7 +23,7 @@ function EditLocationPage(props) {
         }
 
         console.log('Peticion edit')
-        locationEditPut(datos);
+        locationEditPut(id, datos);
 
         return () => {
             console.log('Desmontando')
