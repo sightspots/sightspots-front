@@ -511,8 +511,8 @@ input[placeholder] {
   bottom: 25px;
   font-size: 50px;
   border-radius: 50%;
-  background-color: var(--mid);
-  color: var(--grey);
+  background-color: var(--white);
+  color: var(--primary);
 }
 
 .admin-panel__location-block {
@@ -550,7 +550,7 @@ input[placeholder] {
 }
 
 .admin-panel__location--icons * {
-  color: var(--mid);
+  color: var(--primary);
   margin: 0 2px;
 }
 
