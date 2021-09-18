@@ -7,11 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Open
 import { faEdit } from '@fortawesome/free-solid-svg-icons' // Edit
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'; // Delete
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'; // Add
+import { faPlus } from '@fortawesome/free-solid-svg-icons'; // Add
 
 function AdminPanel({ isAdmin, user }) {
-
-    const { name, avatar } = user || {};
     const [locations, setLocations] = useState([]);
 
     useEffect(() => {
@@ -53,7 +51,7 @@ function AdminPanel({ isAdmin, user }) {
                             </div>
                         )}
                     </div>
-                    <Link to={'/admin/create'}><FontAwesomeIcon icon={faPlusCircle} className="admin-panel__add-icon"/></Link>
+                    <Link to={'/admin/create'}><FontAwesomeIcon icon={faPlus} className="admin-panel__add-icon"/></Link>
                 </div>
                 : <h1>Acceso denegado</h1>
             }

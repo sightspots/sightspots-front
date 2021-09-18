@@ -1,6 +1,5 @@
 .admin-panel {
     padding: 20px;
-    background-color: var(--grey);
     color: var(-primary);
     position: relative;
 
@@ -9,8 +8,8 @@
         bottom: 25px;
         font-size: 50px;
         border-radius: 50%;
-        background-color: var(--grey);
-        color: var(--mid);
+        background-color: var(--mid);
+        color: var(--grey);
     }
 
     &__location-block {

@@ -246,6 +246,11 @@ a:active, a:visited {
   background-color: white;
 }
 
+.profile {
+  padding: 20px;
+  color: var(-primary);
+}
+
 .profile-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,7 +280,6 @@ a:active, a:visited {
 
 .admin-panel {
   padding: 20px;
-  background-color: var(--grey);
   color: var(-primary);
   position: relative;
 }
@@ -285,8 +289,8 @@ a:active, a:visited {
   bottom: 25px;
   font-size: 50px;
   border-radius: 50%;
-  background-color: var(--grey);
-  color: var(--mid);
+  background-color: var(--mid);
+  color: var(--grey);
 }
 
 .admin-panel__location-block {
