@@ -19,24 +19,96 @@ html, body, input, select, textarea, button {
 }
 
 :root {
-  --blue-dark: #27187E;
-  --blue-mid: #758BFD;
-  --blue-light: #c1c8ff;
-  --orange: #FF8600;
+  --primary: #262049;
+  --mid: #5d77f7;
+  --light: #c1c8ff;
+  --contrast: #00ffb3;
   --grey: #e4e6ec;
   --white: #ffffff;
-  --blue-dark-medium: #27187ecc;
-  --blue-mid-medium: #758cfdcb;
-  --blue-light-medium: #c1c8ffcc;
-  --orange-medium: #ff8800b9;
+  --primary-medium: #27187ecc;
+  --mid-medium: #758cfdcb;
+  --light-medium: #c1c8ffcc;
+  --contrast-medium: #ff0095bb;
   --grey-medium: #e4e6ecbb;
   --white-medium: #ffffffb9;
-  --blue-dark-soft: #27187e86;
-  --blue-mid-soft: #758cfda6;
-  --blue-light-soft: #c1c8ff8c;
-  --orange-soft: #ff8800a1;
+  --primary-soft: #27187e86;
+  --mid-soft: #758cfda6;
+  --light-soft: #c1c8ff8c;
+  --contrast-soft: #ff009588;
   --grey-soft: #e4e6ec98;
   --white-soft: #ffffff98;
+}
+
+.card {
+  background-color: var(--grey-medium);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 0px 50px -8px #000000;
+          box-shadow: 5px 0px 50px -8px #000000;
+}
+
+.card__picture {
+  margin: 10px 0;
+}
+
+.card__img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card__info {
+  width: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card__name {
+  color: var(--mid);
+  font-size: 15px;
+  text-align: start;
+}
+
+.card__description {
+  color: var(--primary-medium);
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: justify;
+}
+
+.card__button-area {
+  margin-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .Location {
