@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { locationDelete } from '../../api/locationDelete';
 import { getLocations } from "../../api/locationsGet";
+import trimmedString from '../../utils/substring';
 
 const LocationCard = ({ location, setLocations, flag = false }) => {
 
@@ -12,25 +13,36 @@ const LocationCard = ({ location, setLocations, flag = false }) => {
   }
 
   return (
-    <div className="card" style={{ border: "1px solid" }}>
-      <div className="card__map">
-        <img src={location.pictures !== undefined ? location.pictures[
-          Math.floor(Math.random() * (location.pictures.length - 1))] : ''}
+    <div className="card">
+      <div className="card__picture">
+        <img
+          className="card__img"
+          src={
+            location.pictures !== undefined
+              ? location.pictures[
+                  Math.floor(Math.random() * (location.pictures.length - 1))
+                ]
+              : ""
+          }
           alt={location.title}
-          style={{ "width": "250px" }}
+          style={{ width: "250px" }}
         />
       </div>
       <div className="card__info">
-        <h1>{location.title}</h1>
-        <p>{location.description}</p>
+        <h1 className="card__name">{location.title}</h1>
+        <p className="card__description">
+          {trimmedString(location.description)}
+        </p>
         <div className="card__button-area">
-          <span>Likes: {location.rating}</span>
-          <button>Ampliar</button>
-          <button>tipo</button>
+          <span className="card__rating">Likes: {location.rating}</span>
+          {!flag && (
+            <Link className="card__goto" to={`/locations/${location._id}`}>
+              Ver Location
+            </Link>
+          )}
         </div>
       </div>
 
-      {!flag && <Link to={`/locations/${location._id}`}>Ver Location</Link>}
       {flag && <Link to={`/admin/edit/${location._id}`}>Editar Location</Link>}
       {flag && <button onClick={handleClick}>Borrar Location</button>}
     </div>
