@@ -32,12 +32,12 @@ function LocationView({ location }) {
 
     
 
-    console.log(location)
+    console.log('El que me interesa', pictures)
 
     return (
         <div className="Location">
             <div className="Location__slider">
-                {pictures !== undefined ?
+                {pictures !== undefined  ?
 
                     <SimpleImageSlider
                         style={{overflow: 'hidden'}}
@@ -51,15 +51,16 @@ function LocationView({ location }) {
                     : ''}
             </div>
             <LocationHeader />
-            <LocationInfo location={location} />
             <LocationIcon location={location} />
+            <LocationInfo location={location} />
             <LocationDescription location={location} />
+            {coor.length > 0 ? <div className="Location__card_special"><Overlays title={location.title} coor={coor} /></div> : ""}
             {location.audio !== undefined ?
-                <LocationSpotify trackId={location.audio}></LocationSpotify>
+                <div className="Location__card_special"><LocationSpotify trackId={location.audio}></LocationSpotify></div>
                 : null
             }
-            {coor.length > 0 ? <Overlays title={location.title} coor={coor} /> : ""}
-            <Button name={'Guardar'} />
+            
+            <div className="Location__card_special"><Button name={'Guardar'} /></div>
         </div>
     )
 }

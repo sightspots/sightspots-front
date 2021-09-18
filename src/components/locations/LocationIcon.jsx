@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons' // Naturaleza
 import { faArchway } from '@fortawesome/free-solid-svg-icons' // Construccion civil
@@ -7,11 +7,18 @@ import { faPaintBrush } from '@fortawesome/free-solid-svg-icons' // galería de 
 import { faSeedling } from '@fortawesome/free-solid-svg-icons' // jadrin botanico
 import { faHippo } from '@fortawesome/free-solid-svg-icons' // zoologico
 import { faMonument } from '@fortawesome/free-solid-svg-icons' // monumento
-import { faHeart } from '@fortawesome/free-solid-svg-icons' // monumento
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons' // monumento
+
+import { faHeart as linea } from '@fortawesome/free-regular-svg-icons' // corazon LINEA !!
+import { faHeart as solido } from '@fortawesome/free-solid-svg-icons' // corazon SOLIDO !!
+
+
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons' // avion papel
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons' // pulgar arriba
 
 
 function LocationIcon({ location }) {
+
+    const [state, setState] = useState(false)
 
     const tags = [
 
@@ -26,7 +33,6 @@ function LocationIcon({ location }) {
     const types = [];
     const icons = [];
     let key = 0;
-    let iconIcon = faThumbsUp
 
     if (location !== undefined) {
 
@@ -66,26 +72,21 @@ function LocationIcon({ location }) {
 
 
     const handleClick = () => {
-
         window.localStorage.setItem(location.title, true);
-        window.localStorage.getItem(location.title);
-
-        iconIcon = faHeart
-        console.log(iconIcon)
+        setState(true);
     }
 
     return (
-        <div className="Location__card">
-            <div className="Location__icon">
+        <div className="Location__card_special">
                 {icons.map(icon => {
-                    return icon !== undefined ? <FontAwesomeIcon key={key++} icon={icon} /> : ''
+                    return icon !== undefined ? <FontAwesomeIcon className="Location__icon" key={key++} icon={icon} /> : ''
                 })}
-                <FontAwesomeIcon onClick={handleClick} style={{ marginLeft: '30px' }} icon={iconIcon} />
-            </div>
+                <FontAwesomeIcon className="Location__icon" icon={faThumbsUp} />
+                <FontAwesomeIcon className="Location__icon" icon={faPaperPlane} />
+                <FontAwesomeIcon className="Location__icon" onClick={handleClick} icon={state ? solido : linea} />
+                <span className="Location__likes">20</span>
         </div>
     )
 }
 
 export default LocationIcon
-
-// window.localStorage.getItem(location.title)  ? faHeart : faThumbsUp

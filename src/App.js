@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Navbar, Register, Login, UserPage, AdminPanel, NotFound, AuthRoute } from './components/root.index'
 import { LocationsPage, OneLocationPage, CreateLocationPage, EditLocationPage } from './components/locations.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import Footer from './components/core/Footer';
 
 // maps
 
@@ -48,6 +49,7 @@ function App() {
             render={props => <EditLocationPage isAdmin={admin} {...props} />} />
           <Route component={NotFound} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

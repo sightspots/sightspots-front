@@ -5,15 +5,15 @@ const Spotify = ({trackId}) => {
   const id = trackId;
 
   return (
-    <iframe
-      title='Spotify'
-      src={url + id}
-      width='100%'
-      height='100%'
-      frameBorder='0'
-      allowtransparency='true'
-      allow='encrypted-media'
-    ></iframe>
+      <iframe
+        title='Spotify'
+        src={url + id}
+        width='100%'
+        height='100%'
+        frameBorder='0'
+        allowtransparency='true'
+        allow='encrypted-media'
+      ></iframe>
   );
 };
 
