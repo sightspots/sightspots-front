@@ -551,6 +551,7 @@ input[placeholder] {
 
 .admin-panel__location--icons * {
   color: var(--mid);
+  margin: 0 2px;
 }
 
 .ol-attribution {

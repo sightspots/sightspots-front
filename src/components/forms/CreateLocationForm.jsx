@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router';
+import Button from '../ui/Button';
 
 function CreateLocationForm(props) {
     const [datos, setDatos] = useState({
@@ -99,8 +100,7 @@ function CreateLocationForm(props) {
                 <div className="Formulario__textareaBox">
                     <textarea className="Formulario__textarea" placeholder="Descripción" name="description" onChange={handleInput} />
                 </div>
-                <button className="Formulario__button">Enviar</button>
-
+                <Button type='submit' name={'Crear'} />
             </form >
         </div >
     )

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router';
+import Button from '../ui/Button';
 
 function EditLocationForm(props) {
 
@@ -22,6 +23,8 @@ function EditLocationForm(props) {
     const [datos, setDatos] = useState({
         title: '',
         type: '',
+        audio: '',
+        visitingHours: '',
         pictures: [],
         description: '',
         latLng: ''
@@ -73,8 +76,6 @@ function EditLocationForm(props) {
             type: event.target.value,
         })
     };
-
-    // TODO: Hay que hacer que funcione
 
     return (
         <div>
@@ -147,7 +148,7 @@ function EditLocationForm(props) {
                         onChange={handleInput}
                     />
                 </div>
-                <button className="Formulario__button">Enviar</button>
+                <Button type='submit' name={'Guardar'} />
             </form>
         </div>
     )

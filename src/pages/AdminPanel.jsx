@@ -6,7 +6,7 @@ import ProfileHeader from '../components/ui/ProfileHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Open
 import { faEdit } from '@fortawesome/free-solid-svg-icons' // Edit
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'; // Delete
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'; // Delete
 import { faPlus } from '@fortawesome/free-solid-svg-icons'; // Add
 
 function AdminPanel({ isAdmin, user }) {
@@ -46,7 +46,7 @@ function AdminPanel({ isAdmin, user }) {
                                 <div className="admin-panel__location--icons">
                                     <Link to={`/locations/${location._id}`}><FontAwesomeIcon icon={faExternalLinkAlt} /></Link>
                                     <Link to={`/admin/edit/${location._id}`}><FontAwesomeIcon icon={faEdit} /></Link>
-                                    <span onClick={() => handleClick(location._id)}><FontAwesomeIcon icon={faTimesCircle} /></span>
+                                    <span onClick={() => handleClick(location._id)}><FontAwesomeIcon icon={faTrashAlt} /></span>
                                 </div>
                             </div>
                         )}

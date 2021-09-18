@@ -22,14 +22,6 @@ const LocationCard = ({ location }) => {
       <div className="Location__card--list">
         <LocationIcon location={location} />
       </div>
-
-
-      {/* <div className="card__button-area">
-        <span className="card__rating">Likes: {location.rating}</span>
-        <Link className="card__goto" to={`/locations/${location._id}`}>
-          Ver Location
-        </Link>
-      </div> */}
     </div>
   );
 };
