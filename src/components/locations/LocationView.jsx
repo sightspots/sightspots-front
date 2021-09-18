@@ -30,10 +30,6 @@ function LocationView({ location }) {
     let width = document.documentElement.clientWidth || document.body.clientWidth
     let height = (window.screen.height/1.2)
 
-    
-
-    console.log('El que me interesa', pictures)
-
     return (
         <div className="Location">
             <div className="Location__slider">
