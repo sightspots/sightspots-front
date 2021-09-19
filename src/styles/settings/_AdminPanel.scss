@@ -1,0 +1,45 @@
+.admin-panel {
+    padding: 20px;
+    color: var(--primary);
+    position: relative;
+
+    &__add-icon {
+        position: fixed;
+        bottom: 25px;
+        font-size: 50px;
+        border-radius: 50%;
+        background-color: var(--white);
+        color: var(--primary);
+    }
+
+    &__location-block {
+        border-radius: 10px;
+        border: 1px solid var(--light);
+        padding: 5px 10px;
+    }
+
+    &__location {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px; 
+        align-items: center;
+        margin-bottom: 10px;
+
+        &--name {
+            font-weight: normal;
+        }
+
+        &--icons {
+            font-size: 20px;
+            display: flex;
+            justify-content: space-around;
+
+            & * {
+                color: var(--primary);
+                margin: 0 2px;
+            }
+        }
+    }
+}

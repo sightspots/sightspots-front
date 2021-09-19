@@ -23,12 +23,12 @@ function EditLocationPage(props) {
         }
 
         console.log('Peticion edit')
-        locationEditPut(datos);
+        locationEditPut(id, datos);
 
         return () => {
             console.log('Desmontando')
         }
-    }, [datos])
+    }, [id, datos])
 
     const editLocation = (props) => {
         const newDatas = { ...datos, props };
@@ -43,7 +43,7 @@ function EditLocationPage(props) {
                     <div className="LocationForm__header">
                         <h1 className="LocationForm__title">
                             <FontAwesomeIcon icon={faPlusCircle} style={{ marginRight: '5px' }} />
-                            Crear nueva localización
+                            Editar localización
                         </h1>
                     </div>
                     <EditLocationForm locationToEdit={locationToEdit} editLocation={editLocation} id={id} />

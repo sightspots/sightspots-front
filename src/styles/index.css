@@ -10,7 +10,12 @@
   scroll-behavior: smooth;
 }
 
-html, body, input, select, textarea, button {
+html,
+body,
+input,
+select,
+textarea,
+button {
   border: none;
   appearance: none;
   -webkit-appearance: none;
@@ -18,8 +23,13 @@ html, body, input, select, textarea, button {
   font-family: "Poppins", sans-serif;
 }
 
+a:active, a:visited {
+  color: inherit;
+}
+
 /* /////////////////////////    BOTON   //////////////////////////////  */
 .b-button {
+  margin-top: 10px;
   width: 100%;
   height: 40px;
   border: none;
@@ -38,7 +48,7 @@ html, body, input, select, textarea, button {
   text-align: center;
   -webkit-box-shadow: 0 0 10px 2px var(--light-soft);
           box-shadow: 0 0 10px 2px var(--light-soft);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .b-button:hover {
@@ -170,28 +180,14 @@ html, body, input, select, textarea, button {
           box-shadow: 0 0 20px 3px var(--light-soft);
 }
 
-.Formulario__button {
-  border: none;
-  width: 100%;
-  margin-top: 8px;
-  height: 40px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  background-color: var(--mid);
-  -webkit-box-shadow: 0 0 20px 3px var(--grey);
-          box-shadow: 0 0 20px 3px var(--grey);
-  color: white;
-}
-
-.Formulario__button:hover {
-  background-color: white;
-  color: var(--primary);
-}
-
 input:focus, select:focus, textarea:focus {
   outline: none;
   border: 1px solid var(--mid);
   border-radius: 8px;
+}
+
+input[placeholder] {
+  font-size: inherit;
 }
 
 .LocationForm {
@@ -209,6 +205,53 @@ input:focus, select:focus, textarea:focus {
   color: var(--mid);
   font-size: 20px;
   line-height: 1.3;
+}
+
+.card {
+  padding: 15px;
+  margin: 10px;
+  color: var(--mid);
+  background-color: var(--white);
+  -webkit-box-shadow: 0 0 10px 2px var(--light-soft);
+          box-shadow: 0 0 10px 2px var(--light-soft);
+  border-radius: 10px;
+  border: 1px solid var(--light-soft);
+}
+
+.card__picture {
+  margin-top: 10px;
+  margin-bottom: 12px;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card__img {
+  width: 100%;
+}
+
+.card__name {
+  color: var(--primary);
+  font-size: 16px;
+  text-align: start;
+  font-weight: normal;
+}
+
+.card__button-area {
+  margin-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .Location {
@@ -231,6 +274,7 @@ input:focus, select:focus, textarea:focus {
           align-items: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  margin-bottom: 50px;
 }
 
 .Location__header {
@@ -286,13 +330,28 @@ input:focus, select:focus, textarea:focus {
   border: 1px solid var(--light-soft);
 }
 
-.Location__card_special {
-  color: var(--mid);
+.Location__card--list {
   width: 90%;
   margin: 0 auto;
-  margin-top: 50px;
-  color: var(--mid);
-  font-size: 20px;
+  color: var(--primary);
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Location__card--view {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  color: var(--primary);
+  font-size: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -301,23 +360,14 @@ input:focus, select:focus, textarea:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .Location__title {
   width: 90%;
   line-height: 1.2;
   margin-bottom: 10px;
-}
-
-.Location__icon {
-  font-size: 24px;
-  color: var(--primary);
-}
-
-.Location__likes {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--primary);
 }
 
 .Location__ubi {
@@ -376,7 +426,7 @@ input:focus, select:focus, textarea:focus {
 
 .hide {
   width: 90%;
-  max-height: 85px;
+  max-height: 113px;
   margin: 40px auto;
   color: var(--primary);
   border-radius: 10px;
@@ -416,6 +466,105 @@ input:focus, select:focus, textarea:focus {
 
 .navbar__link:hover {
   background-color: white;
+}
+
+.profile {
+  padding: 20px;
+  color: var(-primary);
+}
+
+.profile-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-header__greeting {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.profile-header__avatar {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.admin-panel {
+  padding: 20px;
+  color: var(--primary);
+  position: relative;
+}
+
+.admin-panel__add-icon {
+  position: fixed;
+  bottom: 25px;
+  font-size: 50px;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+.admin-panel__location-block {
+  border-radius: 10px;
+  border: 1px solid var(--light);
+  padding: 5px 10px;
+}
+
+.admin-panel__location {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.admin-panel__location--name {
+  font-weight: normal;
+}
+
+.admin-panel__location--icons {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.admin-panel__location--icons * {
+  color: var(--primary);
+  margin: 0 2px;
+}
+
+.ol-attribution {
+  font-size: 12px;
+}
+
+.ol-zoom {
+  font-size: 16px;
+}
+
+.map__icon {
+  font-size: 50px;
+  color: var(--primary);
 }
 
 .d-none {

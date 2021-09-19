@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { loginPost } from '../../api/loginPost';
+import Button from '../ui/Button';
 
 function Login({ isAuth, setUser, setAdmin, location }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleClick = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         try {
             const user = await loginPost({ email, password });
             setUser(user);
@@ -31,9 +34,9 @@ function Login({ isAuth, setUser, setAdmin, location }) {
         <div className="Formulario">
             <div className="Formulario__header">
                 <h1 className="Formulario__title">Entra en tu cuenta de SightSpots</h1>
-                <Link  to='/register'><p className="Formulario__link"> O registrate en SightSpots gratis</p></Link>
+                <Link to='/register'><p className="Formulario__link"> O registrate en SightSpots gratis</p></Link>
             </div>
-            <div className="Formulario__container">
+            <form className="Formulario__container" onSubmit={handleSubmit}>
                 <div className="Formulario__inputBox">
                     <input
                         value={email}
@@ -52,8 +55,8 @@ function Login({ isAuth, setUser, setAdmin, location }) {
                         className="Formulario__input"
                     />
                 </div>
-                <button className="Formulario__button" onClick={handleClick}>Login</button>
-            </div>
+                <Button type='submit' name={'Login'} />
+            </form>
         </div>
     );
 }

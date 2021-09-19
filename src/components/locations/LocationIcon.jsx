@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons' // Naturaleza
 import { faArchway } from '@fortawesome/free-solid-svg-icons' // Construccion civil
@@ -77,15 +77,15 @@ function LocationIcon({ location }) {
     }
 
     return (
-        <div className="Location__card_special">
-                {icons.map(icon => {
-                    return icon !== undefined ? <FontAwesomeIcon className="Location__icon" key={key++} icon={icon} /> : ''
-                })}
-                <FontAwesomeIcon className="Location__icon" icon={faThumbsUp} />
-                <FontAwesomeIcon className="Location__icon" icon={faPaperPlane} />
-                <FontAwesomeIcon className="Location__icon" onClick={handleClick} icon={state ? solido : linea} />
-                <span className="Location__likes">20</span>
-        </div>
+        <>
+            {icons.map(icon => {
+                return icon !== undefined ? <FontAwesomeIcon key={key++} icon={icon} /> : ''
+            })}
+            <FontAwesomeIcon icon={faThumbsUp} />
+            <FontAwesomeIcon icon={faPaperPlane} />
+            <FontAwesomeIcon onClick={handleClick} icon={state ? solido : linea} />
+            <span>20</span>
+        </>
     )
 }
 

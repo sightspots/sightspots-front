@@ -1,15 +1,11 @@
 import React from 'react';
+import ProfileHeader from '../components/ui/ProfileHeader';
 
 function UserPage({ user }) {
-    const { email, password, name, role } = user || {};
 
     return (
-        <div>
-            <h1>Perfil de usuario</h1>
-            <p>Email: {email}</p>
-            <p>Contraseña: {password}</p>
-            <p>Nombre: {name}</p>
-            <p>Rol: {role}</p>
+        <div className="profile">
+            <ProfileHeader user={user} />
         </div>
     );
 }

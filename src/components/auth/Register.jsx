@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { registerPost } from '../../api/registerPost';
+import Button from '../ui/Button';
 
 function Register({ isAuth, setUser }) {
     const [registerFormValues, setRegisterFormValues] = useState({
@@ -104,7 +105,7 @@ function Register({ isAuth, setUser }) {
                         className="Formulario__input"
                     />
                 </div>
-                <button className="Formulario__button">Regístrame</button>
+                <Button type='submit' name={'Regístrame'} />
             </form>
         </div>
     );

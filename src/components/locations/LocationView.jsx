@@ -30,10 +30,6 @@ function LocationView({ location }) {
     let width = document.documentElement.clientWidth || document.body.clientWidth
     let height = (window.screen.height/1.2)
 
-    
-
-    console.log('El que me interesa', pictures)
-
     return (
         <div className="Location">
             <div className="Location__slider">
@@ -51,16 +47,17 @@ function LocationView({ location }) {
                     : ''}
             </div>
             <LocationHeader />
-            <LocationIcon location={location} />
+            <div className="Location__card--view">
+                <LocationIcon location={location} />
+            </div>
             <LocationInfo location={location} />
             <LocationDescription location={location} />
-            {coor.length > 0 ? <div className="Location__card_special"><Overlays title={location.title} coor={coor} /></div> : ""}
             {location.audio !== undefined ?
-                <div className="Location__card_special"><LocationSpotify trackId={location.audio}></LocationSpotify></div>
+                <div className="Location__card--view"><LocationSpotify trackId={location.audio}></LocationSpotify></div>
                 : null
             }
-            
-            <div className="Location__card_special"><Button name={'Guardar'} /></div>
+            {coor.length > 0 ? <div className="Location__card--view"><Overlays title={location.title} coor={coor} /></div> : ""}          
+            <div className="Location__card--view"><Button name={'Guardar'} /></div>
         </div>
     )
 }
