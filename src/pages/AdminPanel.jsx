@@ -35,7 +35,7 @@ function AdminPanel({ isAdmin, user }) {
     }
 
     return (
-        <div>
+        <div className="Container">
             {isAdmin ?
                 <div className="admin-panel">
                     <ProfileHeader user={user} />

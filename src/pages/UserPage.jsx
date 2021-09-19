@@ -4,8 +4,10 @@ import ProfileHeader from '../components/ui/ProfileHeader';
 function UserPage({ user }) {
 
     return (
-        <div className="profile">
-            <ProfileHeader user={user} />
+        <div className="Container">
+            <div className="profile">
+                <ProfileHeader user={user} />
+            </div>
         </div>
     );
 }

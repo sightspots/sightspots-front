@@ -1,0 +1,35 @@
+.Searcher {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    padding: 10px;
+    color: var(--mid);
+    background-color: var(--white);
+    box-shadow: 0 0 10px 2px var(--light-soft);
+    border-radius: 10px;
+    border: 1px solid var(--light-soft);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__input {
+        padding: 10px;
+        width: 85%;
+        height: 40px;
+    }
+
+    &__icon {
+        margin-right: 15px;
+        font-size: 20px;
+    }
+
+    &__title {
+        margin: 50px ;
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--mid);
+        text-align: center;
+    }
+}

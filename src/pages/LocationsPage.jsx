@@ -5,33 +5,56 @@ import LocationSearch from '../components/locations/LocationSearch';
 
 
 function LocationPage() {
-  
-    const [locations, setLocations] = useState([]);
 
-    useEffect(() => {
-        getLocationsApi();
-    }, []);
+  const [locations, setLocations] = useState([]);
+  const [toPaint, setToPaint] = useState(null);
+  let aux = locations;
 
-    
-    const getLocationsApi = async () => {
+  useEffect(() => {
+    getLocationsApi();
+  }, []);
 
-        try {
-            const data = await getLocations();
-            setLocations(data);
-        } catch (error) {
-            console.log(error)
-        }
 
+  const getLocationsApi = async () => {
+
+    try {
+      const data = await getLocations();
+      setLocations(data);
+    } catch (error) {
+      console.log(error);
     }
 
-    return (
-      <>
-        <LocationSearch locations={locations} />
-        {locations.map((location) => (
-          <LocationCard location={location} key={location._id} flag={false} />
-        ))}
-      </>
-    );
+  }
+
+  const showSearch = (props) => {
+
+    console.log('Lo que me llega', props)
+    if (props.length < 1) {
+      setToPaint(locations);
+    } else {
+      setToPaint(props);
+    }
+  }
+
+  if (toPaint !== null) {
+    aux = toPaint;
+  }
+
+  return (
+    <div className="Container">
+
+      <LocationSearch locations={locations} showSearch={showSearch} />
+
+      { typeof aux === 'string' ?
+
+        <h2 className="Searcher__title">{aux}</h2> :
+
+        aux.map((location) => (
+          <LocationCard location={location} key={location._id} />
+        ))
+      }
+    </div>
+  );
 }
 
 export default LocationPage;

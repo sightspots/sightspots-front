@@ -37,7 +37,7 @@ function EditLocationPage(props) {
 
 
     return (
-        <>
+        <div className="Container">
             {isAdmin ?
                 <div className="LocationForm">
                     <div className="LocationForm__header">
@@ -57,7 +57,7 @@ function EditLocationPage(props) {
                     </div>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

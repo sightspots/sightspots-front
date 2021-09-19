@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+
 
 function Logout({ logout, history }) {
     const handleClick = () => {
@@ -8,7 +11,7 @@ function Logout({ logout, history }) {
     };
     
     return (
-        <div onClick={handleClick} className='navbar__link'>Logout</div>
+        <div onClick={handleClick} className='Navbar__link'><FontAwesomeIcon className="Navbar__icon" icon={faDoorOpen} />Logout</div>
     );
 }
 

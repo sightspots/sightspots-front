@@ -33,13 +33,7 @@ function EditLocationForm(props) {
     const submitted = (e) => {
         e.preventDefault();
 
-<<<<<<< HEAD
-        e.preventDefault();
-
-        const { title, type, description, latLng, pictures } = datos
-=======
         const { title, type, description, visitingHours, audio, latLng, pictures } = datos
->>>>>>> origin/develop
 
         let formData = new FormData();
         formData.append('title', title);
