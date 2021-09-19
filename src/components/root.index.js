@@ -6,5 +6,6 @@ import UserPage from '../pages/UserPage';
 import AdminPanel from '../pages/AdminPanel';
 import NotFound from '../pages/NotFound';
 import AuthRoute from './auth/AuthRoute';
+import HomePage from "../pages/HomePage";
 
-export { Navbar, Register, Login, Logout, UserPage, AdminPanel, NotFound, AuthRoute };
+export { Navbar, Register, Login, Logout, UserPage, AdminPanel, NotFound, AuthRoute, HomePage };

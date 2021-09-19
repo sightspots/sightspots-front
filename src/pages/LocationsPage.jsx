@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { LocationCard } from '../components/locations.index'
 import { getLocations } from "../api/locationsGet";
 
-
 function LocationPage() {
     const [locations, setLocations] = useState([]);
 

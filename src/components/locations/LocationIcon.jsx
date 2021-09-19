@@ -13,7 +13,6 @@ import { faMonument } from '@fortawesome/free-solid-svg-icons' // monumento
 import { faHeart as linea } from '@fortawesome/free-regular-svg-icons' // corazon LINEA !!
 import { faHeart as solido } from '@fortawesome/free-solid-svg-icons' // corazon SOLIDO !!
 
-
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons' // avion papel
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons' // pulgar arriba
 import { oneGetLocation } from '../../api/oneLocationGet';

@@ -15,6 +15,7 @@
         "settings/_Profile.scss",
         "settings/_AdminPanel.scss",
         "settings/_Map.scss",
+        "settings/_LocationsMapView.scss",
         "settings/_specials.scss",
         "settings/_footer.scss"
     ],
