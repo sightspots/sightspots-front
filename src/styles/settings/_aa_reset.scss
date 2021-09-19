@@ -24,6 +24,8 @@ button {
 }
 
 a {
+        color: inherit;
+
         &:active,
         &:visited {
                 color: inherit;

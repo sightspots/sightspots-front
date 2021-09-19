@@ -3,7 +3,6 @@ import { oneGetLocation } from "../api/oneLocationGet";
 import { LocationView } from '../components/locations.index';
 
 function OneLocationPage(props) {
-
     const { id } = props.match.params
 
     const [location, setLocation] = useState([]);
@@ -24,7 +23,7 @@ function OneLocationPage(props) {
     
     return (
         <>
-            <LocationView location={location} />
+            <LocationView location={location} user={props.user} />
         </>
     )
 }

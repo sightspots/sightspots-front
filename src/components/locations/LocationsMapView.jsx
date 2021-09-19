@@ -11,7 +11,7 @@ const LocationsMapView = (props) => {
     }
     return (
       <div>
-        {coor !== undefined ? <MultipleMap locations={props.locations} arrCoor={coor} /> : <h1>Aquí se debe de ver un Mapa :S</h1>}
+        {coor !== undefined ? <MultipleMap locations={props.locations} arrCoor={coor} /> : <h1>No se ha podido cargar el mapa</h1>}
       </div>
     );
 }

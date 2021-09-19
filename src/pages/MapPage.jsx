@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import LocationsMapView from "../components/locations/LocationsMapView";
 import { getLocations } from "../api/locationsGet";
 
-const HomePage = () => {
+const MapPage = () => {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -18,10 +18,10 @@ const HomePage = () => {
     }
   };
   return (
-    <div>
+    <div className="Container">
       <LocationsMapView locations={locations}/>
     </div>
   );
 };
 
-export default HomePage;
+export default MapPage;

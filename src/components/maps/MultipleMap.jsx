@@ -20,9 +20,9 @@ export default function MultipleMap(props) {
   return (
     <RMap
       width={"100%"}
-      height={"40vh"}
+      height={"100vh"}
       className="example-map"
-      initial={{ center: fromLonLat([-3.852734, 39.85401]), zoom: 5 }}
+      initial={{ center: fromLonLat([-3.852734, 39.85401]), zoom: 5.5 }}
     >
       <ROSM />
       {locations.map((ele) => {

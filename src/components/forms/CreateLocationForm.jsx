@@ -77,7 +77,7 @@ function CreateLocationForm(props) {
                 <div className="Formulario__inputBox">
                     <select className="Formulario__input" name="type" onChange={handleSelect}>
                         <option value="naturaleza">Naturaleza</option>
-                        <option selected value="construcción civil">Construcción civil</option>
+                        <option value="construcción civil">Construcción civil</option>
                         <option value="construcción religiosa">Construcción religiosa</option>
                         <option value="galería de arte">Galería de arte</option>
                         <option value="jardín botánico">Jardín botánico</option>

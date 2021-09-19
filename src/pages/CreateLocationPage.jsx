@@ -24,7 +24,7 @@ function CreateLocationPage({ isAdmin }) {
     }
 
     return (
-        <>
+        <div className="Container">
             {isAdmin ?
                 <div className="LocationForm">
                     <div className="LocationForm__header">
@@ -44,7 +44,7 @@ function CreateLocationPage({ isAdmin }) {
                     </div>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

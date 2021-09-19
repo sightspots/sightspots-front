@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { Navbar, Register, Login, UserPage, AdminPanel, NotFound, AuthRoute, HomePage } from './components/root.index'
+import { Navbar, Register, Login, UserPage, AdminPanel, NotFound, AuthRoute, MapPage } from './components/root.index'
 import { LocationsPage, OneLocationPage, CreateLocationPage, EditLocationPage  } from './components/locations.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Footer from './components/core/Footer';
-
-// maps
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,9 +17,9 @@ function App() {
         <Navbar isAuth={isAuth} isAdmin={admin} logout={logout} />
         <Switch>
           <Route exact path="/" component={LocationsPage} />
-          <Route exact path="/home" component={HomePage} />
-          <Route exact path="/locations" component={LocationsPage} />
-          <Route exact path="/locations/:id" component={OneLocationPage} />
+          <Route exact path="/map" component={MapPage} />
+          {/* <Route exact path="/locations/:id" component={OneLocationPage} /> */}
+          <Route exact path="/locations/:id" render={(props) => (<OneLocationPage user={user} {...props} />)}/>
           <Route
             exact
             path="/login"
