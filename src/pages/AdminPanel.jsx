@@ -4,7 +4,7 @@ import { getLocations } from "../api/locationsGet";
 import { locationDelete } from '../api/locationDelete';
 import ProfileHeader from '../components/ui/ProfileHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Open
+import { faBan, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Open
 import { faEdit } from '@fortawesome/free-solid-svg-icons' // Edit
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'; // Delete
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'; // Add
@@ -51,9 +51,14 @@ function AdminPanel({ isAdmin, user }) {
                             </div>
                         )}
                     </div>
-                    <Link to={'/admin/create'}><FontAwesomeIcon icon={faPlusCircle} className="admin-panel__add-icon"/></Link>
+                    <Link to={'/admin/create'}><FontAwesomeIcon icon={faPlusCircle} className="admin-panel__add-icon" /></Link>
                 </div>
-                : <h1>Acceso denegado</h1>
+                : <div className="LocationForm__header">
+                    <h1 className="LocationForm__title" style={{ textAlign: 'center' }}>
+                        <FontAwesomeIcon icon={faBan} style={{ marginRight: '5px' }} />
+                        Acceso denegado
+                    </h1>
+                </div>
             }
         </div>
     );

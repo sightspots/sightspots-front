@@ -70,7 +70,7 @@ function CreateLocationForm(props) {
     return (
         <div>
             <form encType="multipart/form-data" className="Formulario__container" onSubmit={submitted}>
-                
+
                 <div className="Formulario__inputBox">
                     <input className="Formulario__input" type="text" name="title" placeholder="Título" onChange={handleInput} />
                 </div>
