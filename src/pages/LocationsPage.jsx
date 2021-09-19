@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { LocationCard } from '../components/locations.index'
 import { getLocations } from "../api/locationsGet";
-
+import LocationsMapView from '../components/locations/LocationsMapView'
 
 function LocationPage() {
     const [locations, setLocations] = useState([]);
@@ -24,6 +24,7 @@ function LocationPage() {
 
     return (
       <div>
+      <LocationsMapView locations={locations}/>
         {locations.map((location) => (
           <LocationCard location={location} key={location._id} flag={false} />
         ))}

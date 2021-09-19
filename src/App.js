@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navbar, Register, Login, UserPage, AdminPanel, NotFound, AuthRoute } from './components/root.index'
-import { LocationsPage, OneLocationPage, CreateLocationPage, EditLocationPage } from './components/locations.index'
+import { LocationsPage, OneLocationPage, CreateLocationPage, EditLocationPage, HomePage } from './components/locations.index'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Footer from './components/core/Footer';
 
@@ -19,34 +19,53 @@ function App() {
         <Navbar isAuth={isAuth} isAdmin={admin} logout={logout} />
         <Switch>
           <Route exact path="/" component={LocationsPage} />
+          <Route exact path="/home" component={HomePage} />
           <Route exact path="/locations" component={LocationsPage} />
           <Route exact path="/locations/:id" component={OneLocationPage} />
           <Route
-            exact path="/login"
-            render={props => (
-              <Login isAuth={isAuth} setUser={setUser} setAdmin={setAdmin} {...props} />
+            exact
+            path="/login"
+            render={(props) => (
+              <Login
+                isAuth={isAuth}
+                setUser={setUser}
+                setAdmin={setAdmin}
+                {...props}
+              />
             )}
           />
           <Route
-            exact path="/register"
-            render={props => (
+            exact
+            path="/register"
+            render={(props) => (
               <Register isAuth={isAuth} setUser={setUser} {...props} />
             )}
           />
           <AuthRoute
             isAuth={isAuth}
-            exact path="/user"
-            render={props => <UserPage user={user} {...props} />}
+            exact
+            path="/user"
+            render={(props) => <UserPage user={user} {...props} />}
           />
           <Route
-            exact path="/admin"
-            render={props => <AdminPanel isAdmin={admin} user={user} {...props} />} />
+            exact
+            path="/admin"
+            render={(props) => (
+              <AdminPanel isAdmin={admin} user={user} {...props} />
+            )}
+          />
           <Route
-            exact path="/admin/create"
-            render={props => <CreateLocationPage isAdmin={admin} {...props} />} />
+            exact
+            path="/admin/create"
+            render={(props) => (
+              <CreateLocationPage isAdmin={admin} {...props} />
+            )}
+          />
           <Route
-            exact path="/admin/edit/:id"
-            render={props => <EditLocationPage isAdmin={admin} {...props} />} />
+            exact
+            path="/admin/edit/:id"
+            render={(props) => <EditLocationPage isAdmin={admin} {...props} />}
+          />
           <Route component={NotFound} />
         </Switch>
         <Footer />

@@ -21,10 +21,29 @@ export default function Overlays(props){
       <ROSM />
       <RLayerVector zIndex={10}>
         <RStyle.RStyle>
-          <RStyle.RIcon scale={1} src={locationIcon} anchor={[0.5, 0.8]} />
+          <RStyle.RIcon scale={0} src={locationIcon} anchor={[0.2, 0.4]} />
         </RStyle.RStyle>
         <RFeature
           geometry={new Point(fromLonLat(props.coor))}
+          onClick={(e) =>
+            e.map.getView().fit(e.target.getGeometry().getExtent(), {
+              duration: 250,
+              maxZoom: 15,
+            })
+          }
+        >
+          <ROverlay className="example-overlay">
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="map__icon" />
+          </ROverlay>
+        </RFeature>
+      </RLayerVector>
+
+      <RLayerVector zIndex={10}>
+        <RStyle.RStyle>
+          <RStyle.RIcon scale={0} src={locationIcon} anchor={[0.2, 0.4]} />
+        </RStyle.RStyle>
+        <RFeature
+          geometry={new Point(fromLonLat([-3.5, 39]))}
           onClick={(e) =>
             e.map.getView().fit(e.target.getGeometry().getExtent(), {
               duration: 250,
