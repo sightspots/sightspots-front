@@ -567,6 +567,14 @@ input[placeholder] {
   color: var(--primary);
 }
 
+.dislay_inline {
+  display: inline;
+}
+
+.dislay_none {
+  display: none;
+}
+
 .d-none {
   display: none;
 }

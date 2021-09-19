@@ -24,7 +24,6 @@ function LocationPage() {
 
     return (
       <div>
-      <LocationsMapView locations={locations}/>
         {locations.map((location) => (
           <LocationCard location={location} key={location._id} flag={false} />
         ))}
