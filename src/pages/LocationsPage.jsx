@@ -25,7 +25,7 @@ function LocationPage() {
     return (
       <div>
         {locations.map((location) => (
-          <LocationCard location={location} key={location._id} flag={false} />
+          <LocationCard location={location} key={location._id} />
         ))}
       </div>
     );

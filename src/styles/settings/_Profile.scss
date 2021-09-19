@@ -1,6 +1,6 @@
 .profile {
     padding: 20px;
-    color: var(-primary);
+    color: var(--primary);
 }
 
 .profile-header {
@@ -12,12 +12,13 @@
     &__greeting {
         font-size: 40px;
         font-weight: bold;
+        overflow: hidden;
     }
 
     &__avatar {
         border-radius: 50%;
         height: 75px;
-        width: 75px;
+        min-width: 75px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

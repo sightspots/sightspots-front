@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { ratingPut } from '../../api/ratingPut';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons' // Naturaleza
 import { faArchway } from '@fortawesome/free-solid-svg-icons' // Construccion civil
@@ -14,14 +16,13 @@ import { faHeart as solido } from '@fortawesome/free-solid-svg-icons' // corazon
 
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons' // avion papel
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons' // pulgar arriba
-
+import { oneGetLocation } from '../../api/oneLocationGet';
 
 function LocationIcon({ location }) {
-
-    const [state, setState] = useState(false)
+    const [isFaved, setIsFaved] = useState();
+    const [rating, setRating] = useState(location.rating);
 
     const tags = [
-
         'naturaleza',
         'construcción civil',
         'construcción religiosa',
@@ -34,10 +35,13 @@ function LocationIcon({ location }) {
     const icons = [];
     let key = 0;
 
+    useEffect(() => {
+        const favs = window.localStorage.getItem('favs') !== null ? JSON.parse(window.localStorage.getItem('favs')) : {}; 
+        setIsFaved(!!favs[location._id]?.isFav);  // eslint-disable-next-line
+    }, []);
+
     if (location !== undefined) {
-
         tags.forEach(tag => {
-
             if (location.type === tag) {
                 types.push(tag)
             }
@@ -61,30 +65,35 @@ function LocationIcon({ location }) {
             }
         })
 
-        if (!window.localStorage.getItem(location.title) && location.title !== undefined) {
-            window.localStorage.setItem(location.title, false);
-        }
-
-
     } else {
-        console.log('Esperando...')
+        console.log('Esperando...');
     }
-
 
     const handleClick = () => {
-        window.localStorage.setItem(location.title, true);
-        setState(true);
-    }
+        const favs = window.localStorage.getItem('favs') !== null ? JSON.parse(window.localStorage.getItem('favs')) : {}; 
+        favs[location._id] = favs[location._id] || {};
+        favs[location._id].isFav = !favs[location._id].isFav;
+        favs[location._id].title = location.title;
+        favs[location._id].image = location.pictures[0];
+        window.localStorage.setItem('favs', JSON.stringify(favs));
+        setIsFaved(favs[location._id].isFav);
+    };
+
+    const handleLike = async () => {
+        await ratingPut(location._id);
+        const newLocation = await oneGetLocation(location._id);
+        setRating(newLocation.rating);
+    };
 
     return (
         <>
             {icons.map(icon => {
                 return icon !== undefined ? <FontAwesomeIcon key={key++} icon={icon} /> : ''
             })}
-            <FontAwesomeIcon icon={faThumbsUp} />
             <FontAwesomeIcon icon={faPaperPlane} />
-            <FontAwesomeIcon onClick={handleClick} icon={state ? solido : linea} />
-            <span>20</span>
+            <FontAwesomeIcon onClick={handleClick} icon={isFaved ? solido : linea} />
+            <FontAwesomeIcon onClick={handleLike} icon={faThumbsUp} />
+            <span>{rating || location.rating}</span>
         </>
     )
 }
