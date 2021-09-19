@@ -30,6 +30,8 @@ function EditLocationForm(props) {
 
     const submited = (e) => {
 
+        e.preventDefault();
+
         const { title, type, description, latLng, pictures } = datos
 
         let formData = new FormData();

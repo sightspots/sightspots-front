@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { LocationCard } from '../components/locations.index'
 import { getLocations } from "../api/locationsGet";
+import LocationSearch from '../components/locations/LocationSearch';
 
 
 function LocationPage() {
+  
     const [locations, setLocations] = useState([]);
 
     useEffect(() => {
@@ -23,11 +25,12 @@ function LocationPage() {
     }
 
     return (
-      <div>
+      <>
+        <LocationSearch locations={locations} />
         {locations.map((location) => (
           <LocationCard location={location} key={location._id} flag={false} />
         ))}
-      </div>
+      </>
     );
 }
 
