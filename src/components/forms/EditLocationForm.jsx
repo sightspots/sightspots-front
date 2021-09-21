@@ -9,8 +9,6 @@ function EditLocationForm(props) {
     const history = useHistory();
     const value = {};
 
-    console.log('LOCATION TO EDIT', locationToEdit);
-
     locationToEdit.forEach(element => {
         value.title = element.title
         value.audio = element.audio

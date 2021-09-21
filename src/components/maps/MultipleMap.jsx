@@ -15,7 +15,6 @@ import splitCoor from "../../utils/split";
 
 export default function MultipleMap(props) {
   const { locations } = props;
-  console.log("props", locations);
 
   return (
     <RMap

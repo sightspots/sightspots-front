@@ -11,7 +11,6 @@ export const locationEditPut = async (id, valores) => {
         });
 
         const location = response.data;
-        console.log('Despues del PUT', location)
         return location
 
     } catch (error) {

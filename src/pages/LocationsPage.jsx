@@ -27,7 +27,6 @@ function LocationPage() {
 
   const showSearch = (props) => {
 
-    console.log('Lo que me llega', props)
     if (props.length < 1) {
       setToPaint(locations);
     } else {

@@ -7,7 +7,7 @@ const LocationsMapView = (props) => {
     if (props.locations !== undefined) {
         coor = getCoorArr(props.locations);
     }else{
-        console.log("esperando coordenadas...");
+        console.log("Esperando coordenadas...");
     }
     return (
       <div>

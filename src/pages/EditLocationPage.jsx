@@ -13,8 +13,6 @@ function EditLocationPage(props) {
 
     let locationToEdit = locationsStorage.filter(location => location._id === id)
 
-    console.log('LocalStorage', locationToEdit)
-
     const [datos, setDatos] = useState({});
 
     useEffect(() => {
@@ -22,11 +20,10 @@ function EditLocationPage(props) {
             return
         }
 
-        console.log('Peticion edit')
         locationEditPut(id, datos);
 
         return () => {
-            console.log('Desmontando')
+            console.log('Desmontando...')
         }
     }, [id, datos])
 
