@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import ProfileHeader from '../components/ui/ProfileHeader';
 
 function UserPage({ user }) {
-    const favs = window.localStorage.getItem('favs') !== null ? JSON.parse(window.localStorage.getItem('favs')) : {};
+    const sightSpotsFavs = window.localStorage.getItem('sightSpotsFavs') !== null ? JSON.parse(window.localStorage.getItem('sightSpotsFavs')) : {};
 
-    const locationsIdArray = Object.keys(favs);
-    const locationsIdFaved = locationsIdArray.filter((locationId) => favs[locationId].isFav);
+    const locationsIdArray = Object.keys(sightSpotsFavs);
+    const locationsIdFaved = locationsIdArray.filter((locationId) => sightSpotsFavs[locationId].isFav);
 
     return (
         <div className="Container">
@@ -17,8 +17,8 @@ function UserPage({ user }) {
                     locationsIdFaved.map((locationId) =>
                         <Link to={`/locations/${locationId}`} key={`${locationId}`}>
                             <div className='card profile__fav-block'>
-                                <h2 className="card__name">{favs[locationId].title}</h2>
-                                <div className='card__picture'><img src={favs[locationId].image} alt={favs[locationId].title} className='card__img' /></div>
+                                <h2 className="card__name">{sightSpotsFavs[locationId].title}</h2>
+                                <div className='card__picture'><img src={sightSpotsFavs[locationId].image} alt={sightSpotsFavs[locationId].title} className='card__img' /></div>
                             </div>
                         </Link>
                     )

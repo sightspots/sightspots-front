@@ -35,9 +35,9 @@ function LocationIcon({ location }) {
     let key = 0;
 
     useEffect(() => {
-        const favs = window.localStorage.getItem('favs') !== null ? JSON.parse(window.localStorage.getItem('favs')) : {}; 
-        setIsFaved(!!favs[location._id]?.isFav);  // eslint-disable-next-line
-    }, []);
+        const sightSpotsFavs = window.localStorage.getItem('sightSpotsFavs') !== null ? JSON.parse(window.localStorage.getItem('sightSpotsFavs')) : {}; 
+        setIsFaved(!!sightSpotsFavs[location._id]?.isFav); 
+    }, [location._id]);
 
     if (location !== undefined) {
         tags.forEach(tag => {
@@ -69,13 +69,13 @@ function LocationIcon({ location }) {
     }
 
     const handleClick = () => {
-        const favs = window.localStorage.getItem('favs') !== null ? JSON.parse(window.localStorage.getItem('favs')) : {}; 
-        favs[location._id] = favs[location._id] || {};
-        favs[location._id].isFav = !favs[location._id].isFav;
-        favs[location._id].title = location.title;
-        favs[location._id].image = location.pictures[0];
-        window.localStorage.setItem('favs', JSON.stringify(favs));
-        setIsFaved(favs[location._id].isFav);
+        const sightSpotsFavs = window.localStorage.getItem('sightSpotsFavs') !== null ? JSON.parse(window.localStorage.getItem('sightSpotsFavs')) : {}; 
+        sightSpotsFavs[location._id] = sightSpotsFavs[location._id] || {};
+        sightSpotsFavs[location._id].isFav = !sightSpotsFavs[location._id].isFav;
+        sightSpotsFavs[location._id].title = location.title;
+        sightSpotsFavs[location._id].image = location.pictures[0];
+        window.localStorage.setItem('sightSpotsFavs', JSON.stringify(sightSpotsFavs));
+        setIsFaved(sightSpotsFavs[location._id].isFav);
     };
 
     const handleLike = async () => {
